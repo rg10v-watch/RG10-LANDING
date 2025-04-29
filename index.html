@@ -153,6 +153,254 @@
             font-size: 0.9em;
             margin-top: 18px;
         }
+        .whatsapp-button {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .whatsapp-button a {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-button a:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+        }
+
+        .payment-section {
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .payment-section h2 {
+            text-align: center;
+            color: #e6007a;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .payment-options {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .payment-option {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .payment-option h3 {
+            color: #e6007a;
+            margin-bottom: 15px;
+        }
+
+        .payment-option p {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .credit-card-button {
+            background-color: #e6007a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .credit-card-button:hover {
+            background-color: #c5006a;
+            transform: scale(1.05);
+        }
+
+        .paypal-button {
+            background-color: #0070ba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .paypal-button:hover {
+            background-color: #005ea6;
+            transform: scale(1.05);
+        }
+
+        /* FAQ Styles */
+        .faq-section {
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            color: #e6007a;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #e6007a22;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: white;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            color: #e6007a;
+            font-size: 1.1em;
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #fff;
+        }
+
+        .faq-answer.active {
+            padding: 15px;
+            max-height: 200px;
+        }
+
+        /* Testimonials Styles */
+        .testimonials-section {
+            background-color: #fff;
+            padding: 40px 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .testimonials-section h2 {
+            text-align: center;
+            color: #e6007a;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .testimonials-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+        }
+
+        .testimonial-content {
+            margin-bottom: 15px;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            color: #333;
+        }
+
+        .testimonial-author {
+            text-align: right;
+            color: #e6007a;
+        }
+
+        .author-name {
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 300px;
+                margin: 15px auto;
+                padding: 15px;
+            }
+            .logo img {
+                height: 70px;
+            }
+            .main-title {
+                font-size: 1.1em;
+            }
+            .video iframe {
+                height: 160px;
+            }
+            .faq-section, .testimonials-section, .payment-section {
+                padding: 20px 15px;
+                margin: 20px 0;
+            }
+            .faq-section h2, .testimonials-section h2, .payment-section h2 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+            .testimonial {
+                min-width: 100%;
+                margin-bottom: 15px;
+            }
+            .payment-option {
+                min-width: 100%;
+                margin-bottom: 15px;
+            }
+            .whatsapp-button a {
+                padding: 12px 20px;
+                font-size: 1.1em;
+            }
+            .cta-btn, .secondary-btn {
+                padding: 12px 0;
+                font-size: 1em;
+            }
+            .faq-question h3 {
+                font-size: 1em;
+            }
+            .testimonial-content p {
+                font-size: 0.95em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -186,13 +434,125 @@
                 <span style="color:#7c4dff; font-weight:bold;">(כ-30,000 שאיפות ראשונות במתנה)</span>
             </div>
         </div>
-        <a href="order.html" style="text-decoration:none;">
-            <button class="cta-btn">הזמן עכשיו וחסוך מאות שקלים!</button>
-        </a>
-        <a href="https://wa.me/0557216267" target="_blank" style="text-decoration:none;">
-            <button class="secondary-btn">שלח וואטסאפ</button>
-        </a>
-        <button class="secondary-btn">השאר פרטים</button>
+        <button class="cta-btn" onclick="openPopup('order')">הזמן עכשיו וחסוך מאות שקלים!</button>
+        <div class="whatsapp-button">
+            <a href="https://wa.me/972557216267" target="_blank">
+                <i class="fab fa-whatsapp"></i> צור קשר ב-WhatsApp
+            </a>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>שאלות נפוצות</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>כמה זמן מחזיקה הסוללה?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>הסוללה מחזיקה עד 3 ימים של שימוש רגיל. זמן הטעינה המלא הוא כ-45 דקות.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>כמה זמן מחזיק הנוזל?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>נוזל של 10 מ"ל מספיק לכ-30,000 שאיפות, שזה בערך חודש של שימוש.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>האם יש אחריות על המוצר?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>כן, יש אחריות של 6 חודשים על המוצר.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>כמה זמן לוקח המשלוח?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>המשלוח מגיע תוך 1-3 ימי עסקים לכל הארץ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="testimonials-section">
+            <h2>מה אומרים הלקוחות שלנו</h2>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"מוצר מעולה! חוסך לי מאות שקלים בחודש. המשלוח הגיע תוך יומיים והשירות היה מצוין."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">דוד</span>
+                        <span class="author-location">תל אביב</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"השעון נראה ממש טוב והפוד עובד מצוין. שווה כל שקל!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">שרה</span>
+                        <span class="author-location">ירושלים</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"המוצר עובד בדיוק כמו שצריך. השירות היה מקצועי והמשלוח הגיע מהר."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">מיכאל</span>
+                        <span class="author-location">חיפה</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="payment-section">
+            <h2>אפשרויות תשלום</h2>
+            <div class="payment-options">
+                <div class="payment-option">
+                    <h3>העברה בנקאית</h3>
+                    <p>בנק: בנק הפועלים</p>
+                    <p>סניף: 123</p>
+                    <p>חשבון: 1234567</p>
+                    <p>שם: [השם שלך]</p>
+                </div>
+                <div class="payment-option">
+                    <h3>ביט</h3>
+                    <p>מספר טלפון: 058-4050339</p>
+                    <p>שם: RG10</p>
+                </div>
+                <div class="payment-option">
+                    <h3>כרטיס אשראי</h3>
+                    <p>תשלום מאובטח באמצעות מערכת סליקה</p>
+                    <button class="credit-card-button">לתשלום בכרטיס אשראי</button>
+                </div>
+                <div class="payment-option">
+                    <h3>PayPal</h3>
+                    <p>תשלום מאובטח באמצעות PayPal</p>
+                    <button class="paypal-button" onclick="window.location.href='https://www.paypal.com/paypalme/rotemg768@gmail.com'">
+                        <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal" style="height: 20px; margin-right: 5px;">
+                        לתשלום ב-PayPal
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <button class="secondary-btn">השאר פרטים</button>
+        </div>
         <div style="text-align:center; color:#e6007a; font-weight:bold; font-size:1.1em; margin:18px 0 0 0;">המשלוח סופר מהיר עד 3 ימי עסקים לכל הארץ!</div>
         <div class="footer">כל הזכויות שמורות © RG10</div>
     </div>
@@ -239,6 +599,21 @@
                 <input name="email" placeholder="אימייל (לא חובה)" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
                 <textarea name="note" placeholder="הערות (לא חובה)" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;resize:vertical;"></textarea>
             `;
+        } else if(type === 'order') {
+            title = 'הזמן עכשיו';
+            fields = `
+                <input name="name" required placeholder="שם מלא" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="phone" required placeholder="טלפון" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="email" required placeholder="אימייל" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="address" required placeholder="כתובת למשלוח" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <select name="payment" required style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                    <option value="">בחר אמצעי תשלום</option>
+                    <option value="bit">ביט</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bank">העברה בנקאית</option>
+                </select>
+                <textarea name="note" placeholder="הערות (לא חובה)" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;resize:vertical;"></textarea>
+            `;
         }
         document.getElementById('popup-title').innerHTML = title;
         document.getElementById('popup-fields').innerHTML = fields;
@@ -258,6 +633,27 @@
         document.getElementById('popup-thankyou').style.display = 'block';
         setTimeout(()=>{ overlay.style.display='none'; }, 2000);
     };
+    </script>
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const toggle = question.querySelector('.faq-toggle');
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(item => {
+                    if (item !== answer) {
+                        item.classList.remove('active');
+                        item.previousElementSibling.querySelector('.faq-toggle').textContent = '+';
+                    }
+                });
+                
+                // Toggle current answer
+                answer.classList.toggle('active');
+                toggle.textContent = answer.classList.contains('active') ? '−' : '+';
+            });
+        });
     </script>
 </body>
 </html> 
