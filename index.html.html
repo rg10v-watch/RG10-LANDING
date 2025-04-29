@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG10 - דף נחיתה</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Heebo', Arial, sans-serif;
+            background: linear-gradient(180deg, #fff 0%, #f8e8ff 100%);
+            margin: 0;
+            padding: 0;
+            color: #2d2d2d;
+        }
+        .container {
+            max-width: 400px;
+            margin: 30px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 24px 18px 18px 18px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 32px;
+            margin-top: 18px;
+        }
+        .logo img {
+            height: 90px;
+            margin-left: 0;
+            box-shadow: 0 8px 32px rgba(230,0,122,0.18);
+            border-radius: 18px;
+            background: #fff;
+            padding: 10px 24px;
+        }
+        .main-title {
+            color: #e6007a;
+            font-size: 1.3em;
+            margin: 0 0 10px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        .subtitle {
+            color: #e6007a;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 18px;
+        }
+        .video {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+        .video iframe {
+            border-radius: 12px;
+            width: 100%;
+            max-width: 320px;
+            height: 180px;
+        }
+        ul.features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 18px 0;
+            border-top:2px solid #e6007a;
+            padding-top:10px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        ul.features li {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(230,0,122,0.08);
+            display: flex;
+            align-items: center;
+            font-size: 1.05em;
+            padding: 14px 16px;
+            transition: box-shadow 0.2s, transform 0.2s;
+            border: 1.5px solid #f3f3f3;
+        }
+        ul.features li:hover {
+            box-shadow: 0 4px 16px rgba(230,0,122,0.18);
+            transform: translateY(-2px) scale(1.03);
+            border-color: #e6007a22;
+        }
+        ul.features li .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            margin-left: 14px;
+            box-shadow: 0 2px 8px #e6007a22;
+            background: linear-gradient(135deg, #fff 60%, #f8e8ff 100%);
+        }
+        ul.features li .icon[style*="color:#43b324"] { background: linear-gradient(135deg, #e8ffe8 60%, #b2f2b2 100%); }
+        ul.features li .icon[style*="color:#bdbdbd"] { background: linear-gradient(135deg, #f3f3f3 60%, #e0e0e0 100%); }
+        ul.features li .icon[style*="color:#e6007a"] { background: linear-gradient(135deg, #ffe8f3 60%, #ffd6e8 100%); }
+        ul.features li .icon[style*="color:#7c4dff"] { background: linear-gradient(135deg, #ede7ff 60%, #d1c4e9 100%); }
+        ul.features li .icon[style*="color:#43b324"] { background: linear-gradient(135deg, #e8ffe8 60%, #b2f2b2 100%); }
+        .info-box {
+            background: linear-gradient(90deg, #ffe8f3 0%, #f8e8ff 100%);
+            border-radius: 16px;
+            padding: 20px 14px 16px 14px;
+            margin-bottom: 24px;
+            text-align: center;
+            font-size: 1.08em;
+            border: 2px solid #e6007a22;
+            box-shadow: 0 2px 12px #e6007a11;
+            position: relative;
+        }
+        .cta-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #ff5aad 0%, #ff7e5f 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .cta-btn:hover {
+            background: linear-gradient(90deg, #ff7e5f 0%, #ff5aad 100%);
+        }
+        .secondary-btn {
+            width: 100%;
+            background: #fff;
+            color: #e6007a;
+            border: 2px solid #e6007a;
+            border-radius: 8px;
+            padding: 12px 0;
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .secondary-btn:hover {
+            background: #e6007a;
+            color: #fff;
+        }
+        .footer {
+            text-align: center;
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 18px;
+        }
+        .whatsapp-button {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .whatsapp-button a {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-button a:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+        }
+
+        .payment-section {
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .payment-section h2 {
+            text-align: center;
+            color: #e6007a;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .payment-options {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .payment-option {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+
+        .payment-option h3 {
+            color: #e6007a;
+            margin-bottom: 15px;
+        }
+
+        .payment-option p {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .credit-card-button {
+            background-color: #e6007a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .credit-card-button:hover {
+            background-color: #c5006a;
+            transform: scale(1.05);
+        }
+
+        .paypal-button {
+            background-color: #0070ba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .paypal-button:hover {
+            background-color: #005ea6;
+            transform: scale(1.05);
+        }
+
+        /* FAQ Styles */
+        .faq-section {
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            color: #e6007a;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #e6007a22;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: white;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            color: #e6007a;
+            font-size: 1.1em;
+        }
+
+        .faq-answer {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #fff;
+        }
+
+        .faq-answer.active {
+            padding: 15px;
+            max-height: 200px;
+        }
+
+        /* Testimonials Styles */
+        .testimonials-section {
+            background-color: #fff;
+            padding: 40px 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .testimonials-section h2 {
+            text-align: center;
+            color: #e6007a;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .testimonials-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+        }
+
+        .testimonial-content {
+            margin-bottom: 15px;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            color: #333;
+        }
+
+        .testimonial-author {
+            text-align: right;
+            color: #e6007a;
+        }
+
+        .author-name {
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 300px;
+                margin: 15px auto;
+                padding: 15px;
+            }
+            .logo img {
+                height: 70px;
+            }
+            .main-title {
+                font-size: 1.1em;
+            }
+            .video iframe {
+                height: 160px;
+            }
+            .faq-section, .testimonials-section, .payment-section {
+                padding: 20px 15px;
+                margin: 20px 0;
+            }
+            .faq-section h2, .testimonials-section h2, .payment-section h2 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+            .testimonial {
+                min-width: 100%;
+                margin-bottom: 15px;
+            }
+            .payment-option {
+                min-width: 100%;
+                margin-bottom: 15px;
+            }
+            .whatsapp-button a {
+                padding: 12px 20px;
+                font-size: 1.1em;
+            }
+            .cta-btn, .secondary-btn {
+                padding: 12px 0;
+                font-size: 1em;
+            }
+            .faq-question h3 {
+                font-size: 1em;
+            }
+            .testimonial-content p {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="RG10 לוגו">
+        </div>
+        <div class="main-title">RG10 – השעון החכם הראשון בעולם שהוא גם וייפ רב-פעמי!</div>
+        <div style="text-align:center; margin-bottom: 10px;">
+            <b>חוסכים מאות שקלים כל חודש – לא צריך לקנות וייפ חדש כל שבועיים!</b><br>
+            <b>צריך רק לקנות נוזל פעם בחודש ב-50 ש"ח וכך לחסוך למעשה אלפי שקלים בשנה!</b>
+        </div>
+        <div class="video">
+            <iframe src="https://www.youtube.com/embed/N1MZaxDh8YU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <ul class="features">
+            <li><span class="icon" style="color:#43b324;">🔥</span>וייפ רב-פעמי – חיסכון משמעותי בעלויות</li>
+            <li><span class="icon" style="color:#bdbdbd;">⚙️</span>שליטה בעוצמת השאיפה – מותאם אישית</li>
+            <li><span class="icon" style="color:#e6007a;">🔌</span>חיבור מגנטי חכם – שליפה קלה לעישון בכל רגע</li>
+            <li><span class="icon" style="color:#7c4dff;">🎵</span>פנס, מוזיקה, שיחות, משחקים, שעון מעורר ועוד</li>
+            <li><span class="icon" style="color:#e6007a;">📱</span>התחברות בלוטוס קלה לכל סוגי הטלפונים</li>
+            <li><span class="icon" style="color:#43b324;">🔋</span>סוללה עוצמתית וטעינה אולטרה מהירה</li>
+        </ul>
+        <div class="info-box">
+            <div style="font-size:1.25em; font-weight:bold; color:#e6007a; margin-bottom:6px; display:flex; align-items:center; justify-content:center; gap:8px;">
+                <span style="font-size:1.3em;">🎁</span>
+                מה מקבלים בערכה?
+            </div>
+            <div style="color:#2d2d2d; font-size:1.08em;">
+                רצועה שחורה, רצועה לבנה, פוד רב-פעמי, 10 מ"ל נוזל<br>
+                <span style="color:#7c4dff; font-weight:bold;">(כ-30,000 שאיפות ראשונות במתנה)</span>
+            </div>
+        </div>
+        <button class="cta-btn" onclick="openPopup('order')">הזמן עכשיו וחסוך מאות שקלים!</button>
+        <div class="whatsapp-button">
+            <a href="https://wa.me/972557216267" target="_blank">
+                <i class="fab fa-whatsapp"></i> צור קשר ב-WhatsApp
+            </a>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>שאלות נפוצות</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>כמה זמן מחזיקה הסוללה?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>הסוללה מחזיקה עד 3 ימים של שימוש רגיל. זמן הטעינה המלא הוא כ-45 דקות.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>כמה זמן מחזיק הנוזל?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>נוזל של 10 מ"ל מספיק לכ-30,000 שאיפות, שזה בערך חודש של שימוש.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>האם יש אחריות על המוצר?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>כן, יש אחריות של 6 חודשים על המוצר.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>כמה זמן לוקח המשלוח?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>המשלוח מגיע תוך 1-3 ימי עסקים לכל הארץ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="testimonials-section">
+            <h2>מה אומרים הלקוחות שלנו</h2>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"מוצר מעולה! חוסך לי מאות שקלים בחודש. המשלוח הגיע תוך יומיים והשירות היה מצוין."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">דוד</span>
+                        <span class="author-location">תל אביב</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"השעון נראה ממש טוב והפוד עובד מצוין. שווה כל שקל!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">שרה</span>
+                        <span class="author-location">ירושלים</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"המוצר עובד בדיוק כמו שצריך. השירות היה מקצועי והמשלוח הגיע מהר."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <span class="author-name">מיכאל</span>
+                        <span class="author-location">חיפה</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="payment-section">
+            <h2>אפשרויות תשלום</h2>
+            <div class="payment-options">
+                <div class="payment-option">
+                    <h3>העברה בנקאית</h3>
+                    <p>בנק: בנק הפועלים</p>
+                    <p>סניף: 123</p>
+                    <p>חשבון: 1234567</p>
+                    <p>שם: [השם שלך]</p>
+                </div>
+                <div class="payment-option">
+                    <h3>ביט</h3>
+                    <p>מספר טלפון: 058-4050339</p>
+                    <p>שם: RG10</p>
+                </div>
+                <div class="payment-option">
+                    <h3>כרטיס אשראי</h3>
+                    <p>תשלום מאובטח באמצעות מערכת סליקה</p>
+                    <button class="credit-card-button">לתשלום בכרטיס אשראי</button>
+                </div>
+                <div class="payment-option">
+                    <h3>PayPal</h3>
+                    <p>תשלום מאובטח באמצעות PayPal</p>
+                    <button class="paypal-button" onclick="window.location.href='https://www.paypal.com/paypalme/rotemg768@gmail.com'">
+                        <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal" style="height: 20px; margin-right: 5px;">
+                        לתשלום ב-PayPal
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <button class="secondary-btn">השאר פרטים</button>
+        </div>
+        <div style="text-align:center; color:#e6007a; font-weight:bold; font-size:1.1em; margin:18px 0 0 0;">המשלוח סופר מהיר עד 3 ימי עסקים לכל הארץ!</div>
+        <div class="footer">כל הזכויות שמורות © RG10</div>
+    </div>
+    <!-- לחצן נגישות צף -->
+    <button id="accessibility-btn" aria-label="נגישות" style="position:fixed; left:24px; bottom:24px; z-index:9999; background:#e6007a; color:#fff; border:none; border-radius:50%; width:56px; height:56px; box-shadow:0 4px 16px #e6007a44; font-size:2em; cursor:pointer; display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:1.5em;">&#9855;</span>
+    </button>
+    <script>
+        document.getElementById('accessibility-btn').onclick = function() {
+            alert('תפריט נגישות יתווסף בקרוב');
+        };
+    </script>
+    <!-- פופאפ טופס כללי -->
+    <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#0008; z-index:10000; align-items:center; justify-content:center;">
+        <div id="popup-form" style="background:#fff; border-radius:16px; max-width:340px; width:90vw; padding:28px 18px 18px 18px; box-shadow:0 4px 32px #0002; position:relative;">
+            <button id="popup-close" aria-label="סגור" style="position:absolute; left:12px; top:12px; background:none; border:none; font-size:1.5em; color:#e6007a; cursor:pointer;">×</button>
+            <div id="popup-title" style="font-size:1.2em; font-weight:bold; color:#e6007a; margin-bottom:12px;"></div>
+            <form id="popup-inner-form">
+                <div id="popup-fields"></div>
+                <button type="submit" style="width:100%; background:linear-gradient(90deg,#ff5aad 0%,#ff7e5f 100%); color:#fff; border:none; border-radius:8px; padding:12px 0; font-size:1.1em; font-weight:bold; margin-top:12px; cursor:pointer;">שלח</button>
+            </form>
+            <div id="popup-thankyou" style="display:none; color:#43b324; font-weight:bold; font-size:1.1em; text-align:center; margin-top:18px;">תודה! נחזור אליך בהקדם.</div>
+        </div>
+    </div>
+    <script>
+    // פותח פופאפ עם שדות מתאימים
+    function openPopup(type) {
+        document.getElementById('popup-overlay').style.display = 'flex';
+        document.getElementById('popup-thankyou').style.display = 'none';
+        document.getElementById('popup-inner-form').style.display = 'block';
+        let title = '';
+        let fields = '';
+        if(type === 'call') {
+            title = 'בקש שיחה חוזרת';
+            fields = `
+                <input name="name" required placeholder="שם מלא" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="phone" required placeholder="טלפון" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+            `;
+        } else if(type === 'details') {
+            title = 'השאר פרטים';
+            fields = `
+                <input name="name" required placeholder="שם מלא" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="phone" required placeholder="טלפון" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="email" placeholder="אימייל (לא חובה)" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <textarea name="note" placeholder="הערות (לא חובה)" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;resize:vertical;"></textarea>
+            `;
+        } else if(type === 'order') {
+            title = 'הזמן עכשיו';
+            fields = `
+                <input name="name" required placeholder="שם מלא" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="phone" required placeholder="טלפון" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="email" required placeholder="אימייל" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="address" required placeholder="כתובת למשלוח" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <select name="payment" required style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                    <option value="">בחר אמצעי תשלום</option>
+                    <option value="bit">ביט</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bank">העברה בנקאית</option>
+                </select>
+                <textarea name="note" placeholder="הערות (לא חובה)" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;resize:vertical;"></textarea>
+            `;
+        }
+        document.getElementById('popup-title').innerHTML = title;
+        document.getElementById('popup-fields').innerHTML = fields;
+    }
+    // פותח פופאפ בלחיצה על הכפתורים
+    const detailsBtn = document.querySelectorAll('button.secondary-btn');
+    if(detailsBtn[1]) detailsBtn[1].onclick = function(e){ e.preventDefault(); openPopup('details'); };
+    // סגירה
+    const overlay = document.getElementById('popup-overlay');
+    document.getElementById('popup-close').onclick = function(){ overlay.style.display='none'; };
+    overlay.onclick = function(e){ if(e.target===overlay) overlay.style.display='none'; };
+    // שליחה
+    const form = document.getElementById('popup-inner-form');
+    form.onsubmit = function(e){
+        e.preventDefault();
+        form.style.display = 'none';
+        document.getElementById('popup-thankyou').style.display = 'block';
+        setTimeout(()=>{ overlay.style.display='none'; }, 2000);
+    };
+    </script>
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const toggle = question.querySelector('.faq-toggle');
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(item => {
+                    if (item !== answer) {
+                        item.classList.remove('active');
+                        item.previousElementSibling.querySelector('.faq-toggle').textContent = '+';
+                    }
+                });
+                
+                // Toggle current answer
+                answer.classList.toggle('active');
+                toggle.textContent = answer.classList.contains('active') ? '−' : '+';
+            });
+        });
+    </script>
+</body>
+</html> 
