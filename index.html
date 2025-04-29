@@ -321,38 +321,78 @@
 
         .testimonials-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 20px;
-            justify-content: center;
         }
 
-        .testimonial {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            flex: 1;
-            min-width: 250px;
+        .whatsapp-chat {
+            background: #e5ddd5;
+            border-radius: 10px;
+            padding: 15px;
+            position: relative;
             max-width: 300px;
+            margin: 0 auto;
         }
 
-        .testimonial-content {
-            margin-bottom: 15px;
+        .chat-header {
+            background: #075e54;
+            color: white;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .testimonial-content p {
-            font-style: italic;
-            color: #333;
+        .chat-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
         }
 
-        .testimonial-author {
+        .chat-messages {
+            background: #e5ddd5;
+            padding: 10px;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            max-width: 80%;
+        }
+
+        .message.received {
+            margin-right: auto;
+        }
+
+        .message.sent {
+            margin-left: auto;
+        }
+
+        .message-content {
+            padding: 8px 12px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .message.received .message-content {
+            background: white;
+            color: #111;
+        }
+
+        .message.sent .message-content {
+            background: #dcf8c6;
+            color: #111;
+        }
+
+        .message-time {
+            font-size: 0.7em;
+            color: #999;
+            margin-top: 2px;
             text-align: right;
-            color: #e6007a;
         }
 
-        .author-name {
-            font-weight: bold;
-            margin-left: 5px;
+        .message.sent .message-time {
+            text-align: left;
         }
 
         @media (max-width: 768px) {
@@ -378,13 +418,8 @@
                 font-size: 1.5em;
                 margin-bottom: 20px;
             }
-            .testimonial {
-                min-width: 100%;
-                margin-bottom: 15px;
-            }
-            .payment-option {
-                min-width: 100%;
-                margin-bottom: 15px;
+            .whatsapp-chat {
+                max-width: 100%;
             }
             .whatsapp-button a {
                 padding: 12px 20px;
@@ -396,9 +431,6 @@
             }
             .faq-question h3 {
                 font-size: 1em;
-            }
-            .testimonial-content p {
-                font-size: 0.95em;
             }
         }
     </style>
@@ -439,6 +471,27 @@
             <a href="https://wa.me/972557216267" target="_blank">
                 <i class="fab fa-whatsapp"></i> צור קשר ב-WhatsApp
             </a>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="payment-section">
+            <div class="payment-options">
+                <div class="payment-option">
+                    <button class="cta-btn" onclick="openPopup('bank')">העברה בנקאית</button>
+                </div>
+                <div class="payment-option">
+                    <button class="cta-btn" onclick="openPopup('bit')">תשלום בביט</button>
+                </div>
+                <div class="payment-option">
+                    <button class="cta-btn" onclick="openPopup('credit')">תשלום בכרטיס אשראי</button>
+                </div>
+                <div class="payment-option">
+                    <button class="cta-btn" onclick="window.location.href='https://www.paypal.com/paypalme/rotemg768@gmail.com'">
+                        <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal" style="height: 20px; margin-right: 5px;">
+                        תשלום ב-PayPal
+                    </button>
+                </div>
+            </div>
         </div>
 
         <!-- FAQ Section -->
@@ -488,64 +541,139 @@
         <div class="testimonials-section">
             <h2>מה אומרים הלקוחות שלנו</h2>
             <div class="testimonials-container">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"מוצר מעולה! חוסך לי מאות שקלים בחודש. המשלוח הגיע תוך יומיים והשירות היה מצוין."</p>
+                <div class="whatsapp-chat">
+                    <div class="chat-header">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="דני">
+                        <span>דני המלך</span>
                     </div>
-                    <div class="testimonial-author">
-                        <span class="author-name">דוד</span>
-                        <span class="author-location">תל אביב</span>
+                    <div class="chat-messages">
+                        <div class="message received">
+                            <div class="message-content">
+                                אחי, המוצר הזה פשוט מטורף! 😍
+                            </div>
+                            <div class="message-time">16:30</div>
+                        </div>
+                        <div class="message sent">
+                            <div class="message-content">
+                                שמח לשמוע! מה בדיוק אהבת?
+                            </div>
+                            <div class="message-time">16:31</div>
+                        </div>
+                        <div class="message received">
+                            <div class="message-content">
+                                הכל! הפוד עובד מעולה, הטעם מדויק, והכי חשוב - חוסך לי 500 שקל בחודש על וייפים חד פעמיים! 🚀
+                            </div>
+                            <div class="message-time">16:32</div>
+                        </div>
                     </div>
                 </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"השעון נראה ממש טוב והפוד עובד מצוין. שווה כל שקל!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <span class="author-name">שרה</span>
-                        <span class="author-location">ירושלים</span>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"המוצר עובד בדיוק כמו שצריך. השירות היה מקצועי והמשלוח הגיע מהר."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <span class="author-name">מיכאל</span>
-                        <span class="author-location">חיפה</span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Payment Section -->
-        <div class="payment-section">
-            <h2>אפשרויות תשלום</h2>
-            <div class="payment-options">
-                <div class="payment-option">
-                    <h3>העברה בנקאית</h3>
-                    <p>בנק: בנק הפועלים</p>
-                    <p>סניף: 123</p>
-                    <p>חשבון: 1234567</p>
-                    <p>שם: [השם שלך]</p>
+                <div class="whatsapp-chat">
+                    <div class="chat-header">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="נועה">
+                        <span>נועה המתוקה</span>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message received">
+                            <div class="message-content">
+                                היי! קיבלתי את השעון היום, הוא ממש יפה! 💖
+                            </div>
+                            <div class="message-time">12:15</div>
+                        </div>
+                        <div class="message sent">
+                            <div class="message-content">
+                                תודה! איך הפוד עובד?
+                            </div>
+                            <div class="message-time">12:16</div>
+                        </div>
+                        <div class="message received">
+                            <div class="message-content">
+                                מעולה! הטעם חזק וטוב, והחיבור המגנטי ממש נוח. המשלוח גם הגיע תוך יומיים! 👍
+                            </div>
+                            <div class="message-time">12:17</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="payment-option">
-                    <h3>ביט</h3>
-                    <p>מספר טלפון: 058-4050339</p>
-                    <p>שם: RG10</p>
+
+                <div class="whatsapp-chat">
+                    <div class="chat-header">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="איתי">
+                        <span>איתי המגניב</span>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message received">
+                            <div class="message-content">
+                                שלום, קיבלתי את המוצר. פשוט מדהים! 🔥
+                            </div>
+                            <div class="message-time">10:20</div>
+                        </div>
+                        <div class="message sent">
+                            <div class="message-content">
+                                תודה! מה דעתך על הפוד?
+                            </div>
+                            <div class="message-time">10:21</div>
+                        </div>
+                        <div class="message received">
+                            <div class="message-content">
+                                הפוד מעולה! טעם מדויק, עשן חלק, והכי חשוב - חוסך לי אלפי שקלים בשנה! המשלוח גם הגיע תוך יומיים והשירות היה מקצועי 👍
+                            </div>
+                            <div class="message-time">10:22</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="payment-option">
-                    <h3>כרטיס אשראי</h3>
-                    <p>תשלום מאובטח באמצעות מערכת סליקה</p>
-                    <button class="credit-card-button">לתשלום בכרטיס אשראי</button>
+
+                <div class="whatsapp-chat">
+                    <div class="chat-header">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="מיכל">
+                        <span>מיכל המלכה</span>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message received">
+                            <div class="message-content">
+                                היי! רציתי להגיד תודה על המוצר המדהים! 😊
+                            </div>
+                            <div class="message-time">14:45</div>
+                        </div>
+                        <div class="message sent">
+                            <div class="message-content">
+                                תודה רבה! מה במיוחד אהבת?
+                            </div>
+                            <div class="message-time">14:46</div>
+                        </div>
+                        <div class="message received">
+                            <div class="message-content">
+                                הכל! העיצוב ממש יפה, הפוד עובד מעולה, והכי חשוב - חוסך לי המון כסף! פשוט מוצר מושלם! 💯
+                            </div>
+                            <div class="message-time">14:47</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="payment-option">
-                    <h3>PayPal</h3>
-                    <p>תשלום מאובטח באמצעות PayPal</p>
-                    <button class="paypal-button" onclick="window.location.href='https://www.paypal.com/paypalme/rotemg768@gmail.com'">
-                        <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal" style="height: 20px; margin-right: 5px;">
-                        לתשלום ב-PayPal
-                    </button>
+
+                <div class="whatsapp-chat">
+                    <div class="chat-header">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" alt="רועי">
+                        <span>רועי האגדי</span>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message received">
+                            <div class="message-content">
+                                אחי, המוצר הזה פשוט גאוני! 🤩
+                            </div>
+                            <div class="message-time">11:30</div>
+                        </div>
+                        <div class="message sent">
+                            <div class="message-content">
+                                שמח לשמוע! מה בדיוק אהבת?
+                            </div>
+                            <div class="message-time">11:31</div>
+                        </div>
+                        <div class="message received">
+                            <div class="message-content">
+                                הכל! הפוד עובד מעולה, הטעם מדויק, והכי חשוב - חוסך לי 600 שקל בחודש! המשלוח גם הגיע תוך יומיים והשירות היה מקצועי! 🚀
+                            </div>
+                            <div class="message-time">11:32</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -614,6 +742,47 @@
                 </select>
                 <textarea name="note" placeholder="הערות (לא חובה)" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;resize:vertical;"></textarea>
             `;
+        } else if(type === 'bank') {
+            title = 'העברה בנקאית';
+            fields = `
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <p style="font-weight: bold; margin-bottom: 10px;">פרטי העברה בנקאית:</p>
+                    <p>בנק: בנק הפועלים</p>
+                    <p>סניף: 123</p>
+                    <p>חשבון: 1234567</p>
+                    <p>שם: [השם שלך]</p>
+                </div>
+                <input name="name" required placeholder="שם מלא" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="phone" required placeholder="טלפון" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="email" required placeholder="אימייל" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="address" required placeholder="כתובת למשלוח" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+            `;
+        } else if(type === 'bit') {
+            title = 'תשלום בביט';
+            fields = `
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <p style="font-weight: bold; margin-bottom: 10px;">פרטי ביט:</p>
+                    <p>מספר טלפון: 058-4050339</p>
+                    <p>שם: RG10</p>
+                </div>
+                <input name="name" required placeholder="שם מלא" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="phone" required placeholder="טלפון" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="email" required placeholder="אימייל" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="address" required placeholder="כתובת למשלוח" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+            `;
+        } else if(type === 'credit') {
+            title = 'תשלום בכרטיס אשראי';
+            fields = `
+                <input name="name" required placeholder="שם מלא" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="phone" required placeholder="טלפון" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="email" required placeholder="אימייל" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="address" required placeholder="כתובת למשלוח" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="card_number" required placeholder="מספר כרטיס" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <input name="expiry" required placeholder="תוקף (MM/YY)" style="width:50%;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                    <input name="cvv" required placeholder="CVV" style="width:50%;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                </div>
+            `;
         }
         document.getElementById('popup-title').innerHTML = title;
         document.getElementById('popup-fields').innerHTML = fields;
@@ -654,6 +823,24 @@
                 toggle.textContent = answer.classList.contains('active') ? '−' : '+';
             });
         });
+    </script>
+    <script>
+    function submitForm() {
+        const form = document.getElementById('popup-form');
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => data[key] = value);
+        
+        // כאן תוכל להוסיף את הלוגיקה לשליחת הנתונים לשרת שלך
+        console.log('Form data:', data);
+        
+        // הצגת הודעת תודה
+        document.getElementById('popup-inner-form').style.display = 'none';
+        document.getElementById('popup-thankyou').style.display = 'block';
+        
+        // סגירת הפופאפ אחרי 3 שניות
+        setTimeout(closePopup, 3000);
+    }
     </script>
 </body>
 </html> 
