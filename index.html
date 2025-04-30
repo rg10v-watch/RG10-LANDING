@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RG10 - דף נחיתה</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             font-family: 'Heebo', Arial, sans-serif;
@@ -54,7 +55,7 @@
             justify-content: center;
             margin-bottom: 18px;
         }
-        .video iframe {
+        .video video {
             border-radius: 12px;
             width: 100%;
             max-width: 320px;
@@ -320,80 +321,65 @@
         }
 
         .testimonials-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .whatsapp-chat {
-            background: #e5ddd5;
-            background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='%23a39e94' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
-            border-radius: 10px;
-            padding: 15px;
-            position: relative;
-            max-width: 300px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 18px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .chat-header {
-            background: #075e54;
-            color: white;
+        .whatsapp-chat {
+            background: #d9fdd3;
+            background-image: url('data:image/svg+xml;utf8,<svg width="260" height="260" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.13"><path d="M40 30c0 5.523-4.477 10-10 10S20 35.523 20 30s4.477-10 10-10 10 4.477 10 10z" fill="%2343b324"/><circle cx="130" cy="130" r="12" fill="%2343b324"/><rect x="200" y="40" width="18" height="18" rx="9" fill="%2343b324"/><path d="M220 220l-10-10m0 0l-10 10m10-10v20" stroke="%2343b324" stroke-width="3" stroke-linecap="round"/><path d="M60 200c0 6.627-5.373 12-12 12s-12-5.373-12-12 5.373-12 12-12 12 5.373 12 12z" fill="%2343b324"/></g></svg>');
+            border-radius: 10px;
             padding: 10px;
-            border-radius: 8px 8px 0 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .chat-header img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-
-        .chat-messages {
-            background: #e5ddd5;
-            padding: 10px;
-        }
-
-        .message {
-            margin-bottom: 10px;
-            max-width: 80%;
-        }
-
-        .message.received {
-            margin-right: auto;
-        }
-
-        .message.sent {
-            margin-left: auto;
-        }
-
-        .message-content {
-            padding: 8px 12px;
-            border-radius: 8px;
             position: relative;
+            max-width: 100px;
+            margin: 0 auto;
+            border: 1.5px solid #b2b2b2;
+            box-shadow: 0 2px 8px #b2b2b233;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 0.85em;
         }
-
-        .message.received .message-content {
-            background: white;
-            color: #111;
+        .chat-header img {
+            width: 28px;
+            height: 28px;
         }
-
-        .message.sent .message-content {
-            background: #dcf8c6;
-            color: #111;
+        .whatsapp-chat:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 24px #43b32433;
         }
-
-        .message-time {
-            font-size: 0.7em;
-            color: #999;
-            margin-top: 2px;
-            text-align: right;
+        /* הסר מודאל */
+        .testimonial-modal-bg {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #0008;
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
         }
-
-        .message.sent .message-time {
-            text-align: left;
+        .testimonial-modal {
+            background: #d9fdd3;
+            border-radius: 16px;
+            padding: 24px 18px;
+            max-width: 340px;
+            width: 90vw;
+            box-shadow: 0 8px 32px #43b32444;
+            position: relative;
+            animation: bounceIn 0.5s;
+        }
+        .testimonial-modal .close-btn {
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #43b324;
+            cursor: pointer;
         }
 
         @media (max-width: 768px) {
@@ -408,7 +394,7 @@
             .main-title {
                 font-size: 1.1em;
             }
-            .video iframe {
+            .video video {
                 height: 160px;
             }
             .faq-section, .testimonials-section, .payment-section {
@@ -474,6 +460,116 @@
             opacity: 0.85;
             will-change: transform;
         }
+        .mini-whatsapp-chat {
+            width: 270px;
+            background: #ece5dd url('whatsapp-bg.jpg') repeat;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px #0002;
+            margin: 30px auto 20px auto;
+            overflow: hidden;
+            font-family: 'Heebo', Arial, sans-serif;
+            border: 1.5px solid #bdbdbd;
+            background-size: 180px 180px;
+        }
+        .mini-wa-header {
+            background: #075e54;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+        }
+        .mini-wa-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-left: 10px;
+            border: 2px solid #fff;
+        }
+        .mini-wa-title {
+            flex: 1;
+        }
+        .mini-wa-name {
+            font-weight: bold;
+            font-size: 1em;
+        }
+        .mini-wa-status {
+            font-size: 0.8em;
+            color: #b2f2b2;
+        }
+        .mini-wa-icons {
+            display: flex;
+            gap: 8px;
+        }
+        .mini-wa-icon {
+            color: #fff;
+            font-size: 1.2em;
+            margin-right: 4px;
+        }
+        .mini-wa-emoji, .mini-wa-mic {
+            color: #888;
+            font-size: 1.2em;
+            vertical-align: middle;
+        }
+        .mini-wa-checks {
+            color: #34b7f1;
+            font-size: 1em;
+            vertical-align: middle;
+        }
+        .mini-wa-messages {
+            background: transparent;
+            padding: 14px 8px 8px 8px;
+            min-height: 90px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .mini-wa-bubble {
+            display: inline-block;
+            max-width: 85%;
+            padding: 7px 12px 5px 10px;
+            border-radius: 8px;
+            font-size: 0.97em;
+            position: relative;
+            box-shadow: 0 1px 2px #0001;
+            word-break: break-word;
+        }
+        .mini-wa-bubble.sent {
+            background: #dcf8c6;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+        .mini-wa-bubble.received {
+            background: #fff;
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+        .mini-wa-time {
+            font-size: 0.75em;
+            color: #888;
+            margin-right: 8px;
+            margin-left: 2px;
+        }
+        .mini-wa-input {
+            background: #f7f7f7;
+            display: flex;
+            align-items: center;
+            padding: 7px 10px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.98em;
+            color: #888;
+            gap: 8px;
+            flex-direction: row-reverse;
+        }
+        .mini-wa-placeholder {
+            flex: 1;
+            color: #888;
+            font-size: 0.98em;
+            text-align: center;
+        }
+        .mini-wa-mic {
+            margin-left: 4px;
+            margin-right: 0;
+        }
     </style>
 </head>
 <body>
@@ -487,52 +583,45 @@
             <b>צריך רק לקנות נוזל פעם בחודש ב-50 ש"ח וכך לחסוך למעשה אלפי שקלים בשנה!</b>
         </div>
         <div class="video">
-            <iframe src="https://www.youtube.com/embed/N1MZaxDh8YU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <video controls width="100%" style="border-radius:12px;max-width:320px;">
+                <source src="WhatsApp Video 2025-04-27 at 14.43.57.mp4" type="video/mp4">
+                הדפדפן שלך לא תומך בניגון וידאו.
+            </video>
         </div>
         <ul class="features">
             <li><span class="icon" style="color:#43b324;">🔥</span>וייפ רב-פעמי – חיסכון משמעותי בעלויות</li>
             <li><span class="icon" style="color:#bdbdbd;">⚙️</span>שליטה בעוצמת השאיפה – מותאם אישית</li>
-            <li><span class="icon" style="color:#e6007a;">🔌</span>חיבור מגנטי חכם – שליפה קלה לעישון בכל רגע</li>
+            <li><span class="icon" style="color:#e6007a;">⌚</span>חיבור מגנטי חכם – שליפה קלה לעישון בכל רגע</li>
             <li><span class="icon" style="color:#7c4dff;">🎵</span>פנס, מוזיקה, שיחות, משחקים, שעון מעורר ועוד</li>
             <li><span class="icon" style="color:#e6007a;">📱</span>התחברות בלוטוס קלה לכל סוגי הטלפונים</li>
             <li><span class="icon" style="color:#43b324;">🍭</span>ניתן למלא את הפוד באיזה טעם שרוצים</li>
             <li><span class="icon" style="color:#43b324;">🔋</span>סוללה עוצמתית וטעינה אולטרה מהירה</li>
+            <li><span class="icon" style="color:#43b324;">⚡</span>טעינה אולטרה מהירה</li>
         </ul>
-        <div class="info-box">
-            <div style="font-size:1.25em; font-weight:bold; color:#e6007a; margin-bottom:6px; display:flex; align-items:center; justify-content:center; gap:8px;">
-                <span style="font-size:1.3em;">🎁</span>
-                מה מקבלים בערכה?
-            </div>
-            <div style="color:#2d2d2d; font-size:1.08em;">
-                רצועה שחורה, רצועה לבנה, פוד רב-פעמי, 10 מ"ל נוזל<br>
-                <span style="color:#7c4dff; font-weight:bold;">(כ-30,000 שאיפות ראשונות במתנה)</span>
+        <div class="info-box" style="background:linear-gradient(90deg,#fff0f6 0%,#e0ffe8 100%); border:2px solid #e6007a44; color:#2d2d2d; margin-bottom:28px; margin-top:0; font-size:1.08em; display:flex; align-items:center; gap:12px;">
+            <span style="font-size:2em; color:#e6007a;">&#9888;&#65039;</span>
+            <div>
+                <b style="color:#e6007a; font-size:1.1em;">היזהרו מחיקויים!</b><br>
+                <img src="logo.png.png" alt="לוגו RG10" style="height:1.2em; vertical-align:middle; margin-left:4px; margin-bottom:2px; background:#fff; border-radius:4px; box-shadow:0 1px 4px #e6007a22; padding:1px 4px; display:inline;">הוא מוצר חדשני ובלעדי שהמותג שלנו הביא לישראל – פיתוח ייחודי שטרם קיים בעולם. רק אצלנו תמצאו את המקור האמיתי, עם איכות ושירות מלא.
             </div>
         </div>
-        <button class="cta-btn" onclick="openPopup('order')">הזמן עכשיו וחסוך מאות שקלים!</button>
+        <div style="text-align:center; margin-bottom: 18px;">
+            <button class="cta-btn" id="open-payment-menu">הזמן עכשיו וחסוך מאות שקלים!</button>
+        </div>
         <div class="whatsapp-button">
             <a href="https://wa.me/972557216267" target="_blank">
                 <i class="fab fa-whatsapp"></i> צור קשר ב-WhatsApp
             </a>
         </div>
-
-        <!-- Payment Section -->
-        <div class="payment-section">
-            <div class="payment-options">
-                <div class="payment-option">
-                    <button class="cta-btn" onclick="openPopup('bank')">העברה בנקאית</button>
-                </div>
-                <div class="payment-option">
-                    <button class="cta-btn" onclick="openPopup('bit')">תשלום בביט</button>
-                </div>
-                <div class="payment-option">
-                    <button class="cta-btn" onclick="openPopup('credit')">תשלום בכרטיס אשראי</button>
-                </div>
-                <div class="payment-option">
-                    <button class="cta-btn" onclick="window.location.href='https://www.paypal.com/paypalme/rotemg768@gmail.com'">
-                        <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal" style="height: 20px; margin-right: 5px;">
-                        תשלום ב-PayPal
-                    </button>
-                </div>
+        <div id="payment-menu" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#0008; z-index:10001; align-items:center; justify-content:center;">
+            <div style="background:#fff; border-radius:16px; max-width:320px; width:90vw; padding:28px 18px 18px 18px; box-shadow:0 4px 32px #0002; position:relative; text-align:center;">
+                <button onclick="document.getElementById('payment-menu').style.display='none'" aria-label="סגור" style="position:absolute; left:12px; top:12px; background:none; border:none; font-size:1.5em; color:#e6007a; cursor:pointer;">×</button>
+                <div style="font-size:1.2em; font-weight:bold; color:#e6007a; margin-bottom:18px;">בחר אמצעי תשלום</div>
+                <button class="cta-btn" style="margin-bottom:10px;" onclick="openPopup('bit'); document.getElementById('payment-menu').style.display='none'">תשלום בביט</button>
+                <button class="cta-btn" style="margin-bottom:10px;" onclick="openPopup('credit'); document.getElementById('payment-menu').style.display='none'">תשלום בכרטיס אשראי</button>
+                <button class="cta-btn" style="margin-bottom:0; background:#0070ba;" onclick="window.location.href='https://www.paypal.com/paypalme/rotemg768@gmail.com'; document.getElementById('payment-menu').style.display='none'">
+                    <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal" style="height: 20px; margin-right: 5px; vertical-align:middle;"> תשלום ב-PayPal
+                </button>
             </div>
         </div>
 
@@ -542,29 +631,58 @@
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>כמה זמן מחזיקה הסוללה?</h3>
+                        <h3>כמה זמן לוקח לטעון את השעון ל-100%?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>הסוללה מחזיקה עד 3 ימים של שימוש רגיל. זמן הטעינה המלא הוא כ-45 דקות.</p>
+                        <p>הטעינה מהירה במיוחד – טעינה מלאה ל-100% אורכת כשעה בלבד!</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>כמה זמן מחזיק הנוזל?</h3>
+                        <h3>כמה זמן מחזיק הנוזל במכשיר?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>נוזל של 10 מ"ל מספיק לכ-30,000 שאיפות, שזה בערך חודש של שימוש.</p>
+                        <p>מיכל של 10 מ"ל מספיק בממוצע ליותר מחודש של שימוש רגיל.</p>
+                        <p>10 מ"ל נוזל מספיקים למלא את הפוד כ-6 פעמים!</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>כמה זמן לוקח המשלוח?</h3>
+                        <h3>מה ההבדל בין RG10 לוייפים חד פעמיים?</h3>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>המשלוח מגיע תוך 1-3 ימי עסקים לכל הארץ.</p>
+                        <p>ברוב הוייפים החד פעמיים יש עד 5 מ"ל בלבד, בעוד שב-RG10 יש 10 מ"ל – פי 2 יותר! בנוסף, RG10 נטען וניתן למילוי חוזר, כך שחוסכים הרבה כסף לאורך זמן.</p>
+                        <p>הכי שווה – ה-10 מ"ל הראשונים כלולים בערכה וניתנים במתנה לגמרי!</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>מה קיבולת הסוללה של RG10?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>ל-RG10 סוללה חזקה במיוחד – 650mAh – שמספיקה לשימוש ממושך ונטענת במהירות.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>האם השעון עמיד?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>בהחלט! השעון מגיע עם זכוכית מחוסמת חזקה במיוחד, כך שהוא עמיד בפני שריטות ומכות יומיומיות.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>האם יש חיקויים למוצר?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>היזהרו מחיקויים! RG10 הוא מוצר חדשני ובלעדי שהמותג שלנו הביא לישראל – פיתוח מיוחד שטרם קיים בעולם. רק אצלנו תמצאו את המקור האמיתי, עם איכות ושירות מלא.</p>
                     </div>
                 </div>
             </div>
@@ -573,140 +691,202 @@
         <!-- Testimonials Section -->
         <div class="testimonials-section">
             <h2>מה אומרים הלקוחות שלנו</h2>
-            <div class="testimonials-container">
-                <div class="whatsapp-chat">
-                    <div class="chat-header">
-                        <img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?w=100&h=100&fit=crop" alt="דניאל כהן">
-                        <span>דניאל כהן, לקוח</span>
+            <div class="mini-whatsapp-chat">
+                <div class="mini-wa-header">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=60&h=60&fit=crop" alt="פרופיל" class="mini-wa-avatar">
+                    <div class="mini-wa-title">
+                        <div class="mini-wa-name">אורן דהן</div>
+                        <div class="mini-wa-status">מחובר/ה</div>
                     </div>
-                    <div class="chat-messages">
-                        <div class="message received">
-                            <div class="message-content">
-                                תקשיב, לא ראיתי מוצר כזה בחיים שלי! פשוט גאוני, כל כך נוח ופשוט לתפעול. לא ציפיתי שזה יהיה כזה טוב! 😍
-                            </div>
-                            <div class="message-time">16:30</div>
-                        </div>
-                        <div class="message sent">
-                            <div class="message-content">
-                                איזה כיף לשמוע! מה הכי הפתיע אותך?
-                            </div>
-                            <div class="message-time">16:31</div>
-                        </div>
-                        <div class="message received">
-                            <div class="message-content">
-                                החיסכון פשוט מטורף! הייתי מוציא מאות שקלים כל חודש, עכשיו אני חוסך המון כסף. תודה רבה לכם 🙏
-                            </div>
-                            <div class="message-time">16:32</div>
-                        </div>
+                    <div class="mini-wa-icons">
+                        <i class="fas fa-phone mini-wa-icon"></i>
+                        <i class="fas fa-camera mini-wa-icon"></i>
+                        <i class="fas fa-ellipsis-v mini-wa-icon"></i>
                     </div>
                 </div>
-
-                <div class="whatsapp-chat">
-                    <div class="chat-header">
-                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop" alt="נועה לוי">
-                        <span>נועה לוי, לקוחה</span>
+                <div class="mini-wa-messages">
+                    <div class="mini-wa-bubble received">
+                        אחי היקר, וואלק אוהב אותך! נודר איזה מוצר נדיר, חסכת לי ים כסף כל חודש!
+                        <span class="mini-wa-time">14:06 <i class="fas fa-check-double mini-wa-checks"></i></span>
                     </div>
-                    <div class="chat-messages">
-                        <div class="message received">
-                            <div class="message-content">
-                                אין דברים כאלה! המוצר פשוט מושלם, הכל כל כך אינטואיטיבי ונוח. לא האמנתי שזה יהיה כזה פשוט לשימוש.
-                            </div>
-                            <div class="message-time">12:15</div>
-                        </div>
-                        <div class="message sent">
-                            <div class="message-content">
-                                תודה נועה! שמחים לשמוע שאת מרוצה 😊
-                            </div>
-                            <div class="message-time">12:16</div>
-                        </div>
-                        <div class="message received">
-                            <div class="message-content">
-                                והמחיר? פשוט חוסך לי מאות שקלים כל חודש. ממליצה לכולם! 💖
-                            </div>
-                            <div class="message-time">12:17</div>
-                        </div>
+                    <div class="mini-wa-bubble sent">
+                        חח איזה תותח, אמרתי לך! אם תצטרך משהו תגיד לי.
+                        <span class="mini-wa-time">14:07</span>
+                    </div>
+                    <div class="mini-wa-bubble received">
+                        יאללה, גם החבר'ה פה בעבודה נדלקו על זה, כולם שואלים מאיפה הבאתי.
+                        <span class="mini-wa-time">14:08 <i class="fas fa-check-double mini-wa-checks"></i></span>
                     </div>
                 </div>
-
-                <div class="whatsapp-chat">
-                    <div class="chat-header">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="איתי ישראלי">
-                        <span>איתי ישראלי, לקוח</span>
+                <div class="mini-wa-input">
+                    <i class="far fa-smile mini-wa-emoji"></i>
+                    <span class="mini-wa-placeholder">הקלד הודעה</span>
+                    <i class="fas fa-microphone mini-wa-mic"></i>
+                </div>
+            </div>
+            <div class="mini-whatsapp-chat">
+                <div class="mini-wa-header">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=60&h=60&fit=crop" alt="פרופיל" class="mini-wa-avatar">
+                    <div class="mini-wa-title">
+                        <div class="mini-wa-name">נועה לוי</div>
+                        <div class="mini-wa-status">מחובר/ה</div>
                     </div>
-                    <div class="chat-messages">
-                        <div class="message received">
-                            <div class="message-content">
-                                וואו! לא ציפיתי שזה יהיה כזה קל ונוח. כל החברים שלי התלהבו, באמת מוצר ברמה אחרת.
-                            </div>
-                            <div class="message-time">10:20</div>
-                        </div>
-                        <div class="message sent">
-                            <div class="message-content">
-                                תודה איתי! תמיד כאן בשבילך 🙌
-                            </div>
-                            <div class="message-time">10:21</div>
-                        </div>
-                        <div class="message received">
-                            <div class="message-content">
-                                והכי חשוב – סוף סוף אני לא מבזבז כסף על וייפים חד פעמיים. אתם אלופים!
-                            </div>
-                            <div class="message-time">10:22</div>
-                        </div>
+                    <div class="mini-wa-icons">
+                        <i class="fas fa-phone mini-wa-icon"></i>
+                        <i class="fas fa-camera mini-wa-icon"></i>
+                        <i class="fas fa-ellipsis-v mini-wa-icon"></i>
                     </div>
                 </div>
-
-                <div class="whatsapp-chat">
-                    <div class="chat-header">
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop" alt="מיכל בן דוד">
-                        <span>מיכל בן דוד, לקוחה</span>
+                <div class="mini-wa-messages">
+                    <div class="mini-wa-bubble received">
+                        תקשיב, לא האמנתי שזה יהיה כזה פשוט. אפילו אמא שלי הסתדרה עם זה.
+                        <span class="mini-wa-time">12:15 <i class="fas fa-check-double mini-wa-checks"></i></span>
                     </div>
-                    <div class="chat-messages">
-                        <div class="message received">
-                            <div class="message-content">
-                                חייבת לציין – לא האמנתי שיהיה כזה קל להפסיק לבזבז כסף. המוצר פשוט, נוח, והכי חשוב – עובד מעולה!
-                            </div>
-                            <div class="message-time">14:45</div>
-                        </div>
-                        <div class="message sent">
-                            <div class="message-content">
-                                תודה רבה מיכל! שמחים לשמוע שאת מרוצה 😊
-                            </div>
-                            <div class="message-time">14:46</div>
-                        </div>
-                        <div class="message received">
-                            <div class="message-content">
-                                ממליצה בחום! לא ראיתי מוצר כזה בארץ, באמת שדרוג ענק.
-                            </div>
-                            <div class="message-time">14:47</div>
-                        </div>
+                    <div class="mini-wa-bubble sent">
+                        חח איזה קטע, באמת קל. אם תצטרכי עזרה אני פה.
+                        <span class="mini-wa-time">12:16</span>
+                    </div>
+                    <div class="mini-wa-bubble received">
+                        גם לא צריך לרוץ כל יומיים לקנות חדש, סוף סוף שקט.
+                        <span class="mini-wa-time">12:17 <i class="fas fa-check-double mini-wa-checks"></i></span>
                     </div>
                 </div>
-
-                <div class="whatsapp-chat">
-                    <div class="chat-header">
-                        <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=100&h=100&fit=crop" alt="רועי שמואלי">
-                        <span>רועי שמואלי, לקוח</span>
+                <div class="mini-wa-input">
+                    <i class="far fa-smile mini-wa-emoji"></i>
+                    <span class="mini-wa-placeholder">הקלד הודעה</span>
+                    <i class="fas fa-microphone mini-wa-mic"></i>
+                </div>
+            </div>
+            <div class="mini-whatsapp-chat">
+                <div class="mini-wa-header">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop" alt="פרופיל" class="mini-wa-avatar">
+                    <div class="mini-wa-title">
+                        <div class="mini-wa-name">איתי ישראלי</div>
+                        <div class="mini-wa-status">מחובר/ה</div>
                     </div>
-                    <div class="chat-messages">
-                        <div class="message received">
-                            <div class="message-content">
-                                אחי, זה פשוט מטורף! לא ציפיתי למוצר כזה איכותי, הכל כל כך פשוט ונוח. באמת לא ראיתי דבר כזה בארץ.
-                            </div>
-                            <div class="message-time">11:30</div>
-                        </div>
-                        <div class="message sent">
-                            <div class="message-content">
-                                תודה רועי! כיף לשמוע שאתה מרוצה 🙏
-                            </div>
-                            <div class="message-time">11:31</div>
-                        </div>
-                        <div class="message received">
-                            <div class="message-content">
-                                והכי חשוב – אני חוסך מאות שקלים כל חודש. ממליץ לכל מי שמחפש פתרון אמיתי!
-                            </div>
-                            <div class="message-time">11:32</div>
-                        </div>
+                    <div class="mini-wa-icons">
+                        <i class="fas fa-phone mini-wa-icon"></i>
+                        <i class="fas fa-camera mini-wa-icon"></i>
+                        <i class="fas fa-ellipsis-v mini-wa-icon"></i>
                     </div>
+                </div>
+                <div class="mini-wa-messages">
+                    <div class="mini-wa-bubble received">
+                        אחי זה אש! לא הבנתי איך לא היה לי את זה קודם. גם החבר'ה שלי עפו על זה.
+                        <span class="mini-wa-time">10:20 <i class="fas fa-check-double mini-wa-checks"></i></span>
+                    </div>
+                    <div class="mini-wa-bubble sent">
+                        חחח תענוג לשמוע, תעדכן אם יש בעיות.
+                        <span class="mini-wa-time">10:21</span>
+                    </div>
+                    <div class="mini-wa-bubble received">
+                        נודר, לא זוכר מתי קניתי וייפ חד פעמי. סידרתם אותי.
+                        <span class="mini-wa-time">10:22 <i class="fas fa-check-double mini-wa-checks"></i></span>
+                    </div>
+                </div>
+                <div class="mini-wa-input">
+                    <i class="far fa-smile mini-wa-emoji"></i>
+                    <span class="mini-wa-placeholder">הקלד הודעה</span>
+                    <i class="fas fa-microphone mini-wa-mic"></i>
+                </div>
+            </div>
+            <div class="mini-whatsapp-chat">
+                <div class="mini-wa-header">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=60&h=60&fit=crop" alt="פרופיל" class="mini-wa-avatar">
+                    <div class="mini-wa-title">
+                        <div class="mini-wa-name">מיכל בן דוד</div>
+                        <div class="mini-wa-status">מחובר/ה</div>
+                    </div>
+                    <div class="mini-wa-icons">
+                        <i class="fas fa-phone mini-wa-icon"></i>
+                        <i class="fas fa-camera mini-wa-icon"></i>
+                        <i class="fas fa-ellipsis-v mini-wa-icon"></i>
+                    </div>
+                </div>
+                <div class="mini-wa-messages">
+                    <div class="mini-wa-bubble received">
+                        חייבת להגיד, לא חשבתי שזה באמת יעבוד. אבל זה אשכרה עושה את העבודה.
+                        <span class="mini-wa-time">14:45 <i class="fas fa-check-double mini-wa-checks"></i></span>
+                    </div>
+                    <div class="mini-wa-bubble sent">
+                        איזה כיף לשמוע! אם תצטרכי משהו תכתבי לי.
+                        <span class="mini-wa-time">14:46</span>
+                    </div>
+                    <div class="mini-wa-bubble received">
+                        לא ראיתי כזה בארץ, באמת מגניב.
+                        <span class="mini-wa-time">14:47 <i class="fas fa-check-double mini-wa-checks"></i></span>
+                    </div>
+                </div>
+                <div class="mini-wa-input">
+                    <i class="far fa-smile mini-wa-emoji"></i>
+                    <span class="mini-wa-placeholder">הקלד הודעה</span>
+                    <i class="fas fa-microphone mini-wa-mic"></i>
+                </div>
+            </div>
+            <div class="mini-whatsapp-chat">
+                <div class="mini-wa-header">
+                    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=60&h=60&fit=crop" alt="פרופיל" class="mini-wa-avatar">
+                    <div class="mini-wa-title">
+                        <div class="mini-wa-name">רועי שמואלי</div>
+                        <div class="mini-wa-status">מחובר/ה</div>
+                    </div>
+                    <div class="mini-wa-icons">
+                        <i class="fas fa-phone mini-wa-icon"></i>
+                        <i class="fas fa-camera mini-wa-icon"></i>
+                        <i class="fas fa-ellipsis-v mini-wa-icon"></i>
+                    </div>
+                </div>
+                <div class="mini-wa-messages">
+                    <div class="mini-wa-bubble received">
+                        אחי, לא הבנתי איך לא הכרתי את זה קודם. הכל פשוט, עובד חלק.
+                        <span class="mini-wa-time">11:30 <i class="fas fa-check-double mini-wa-checks"></i></span>
+                    </div>
+                    <div class="mini-wa-bubble sent">
+                        איזה תותח, תעדכן אם צריך עזרה.
+                        <span class="mini-wa-time">11:31</span>
+                    </div>
+                    <div class="mini-wa-bubble received">
+                        סתם שתדע, גם אחי רוצה כזה עכשיו. כולם מתלהבים.
+                        <span class="mini-wa-time">11:32 <i class="fas fa-check-double mini-wa-checks"></i></span>
+                    </div>
+                </div>
+                <div class="mini-wa-input">
+                    <i class="far fa-smile mini-wa-emoji"></i>
+                    <span class="mini-wa-placeholder">הקלד הודעה</span>
+                    <i class="fas fa-microphone mini-wa-mic"></i>
+                </div>
+            </div>
+            <div class="mini-whatsapp-chat">
+                <div class="mini-wa-header">
+                    <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b41?w=60&h=60&fit=crop" alt="פרופיל" class="mini-wa-avatar">
+                    <div class="mini-wa-title">
+                        <div class="mini-wa-name">סיון פרץ</div>
+                        <div class="mini-wa-status">מחובר/ה</div>
+                    </div>
+                    <div class="mini-wa-icons">
+                        <i class="fas fa-phone mini-wa-icon"></i>
+                        <i class="fas fa-camera mini-wa-icon"></i>
+                        <i class="fas fa-ellipsis-v mini-wa-icon"></i>
+                    </div>
+                </div>
+                <div class="mini-wa-messages">
+                    <div class="mini-wa-bubble received">
+                        נודרת, לא האמנתי שזה באמת מחזיק ככה הרבה זמן. פעם הייתי קונה כל שבועיים, עכשיו שכחתי מזה.
+                        <span class="mini-wa-time">09:12 <i class="fas fa-check-double mini-wa-checks"></i></span>
+                    </div>
+                    <div class="mini-wa-bubble sent">
+                        איזה אלופה, תמשיכי לעדכן איך הולך.
+                        <span class="mini-wa-time">09:13</span>
+                    </div>
+                    <div class="mini-wa-bubble received">
+                        כל החברות שלי כבר רוצות גם, עשיתם פה משהו טוב.
+                        <span class="mini-wa-time">09:14 <i class="fas fa-check-double mini-wa-checks"></i></span>
+                    </div>
+                </div>
+                <div class="mini-wa-input">
+                    <i class="far fa-smile mini-wa-emoji"></i>
+                    <span class="mini-wa-placeholder">הקלד הודעה</span>
+                    <i class="fas fa-microphone mini-wa-mic"></i>
                 </div>
             </div>
         </div>
@@ -887,14 +1067,6 @@
     </div>
     <div id="confetti" class="confetti" style="display:none;"></div>
     <script>
-    // פופאפ שיווקי השקה - מופיע אוטומטית
-    window.onload = function() {
-        setTimeout(function() {
-            document.getElementById('promo-popup').style.display = 'flex';
-            launchConfetti();
-        }, 800);
-    };
-
     // אפקט קונפטי
     function launchConfetti() {
         const confetti = document.getElementById('confetti');
@@ -927,6 +1099,48 @@
         confetti.style.display = 'none';
         confetti.innerHTML = '';
     }
+    </script>
+    <script>
+    // מודאל המלצה
+    const testimonials = Array.from(document.querySelectorAll('.whatsapp-chat'));
+    const modalBg = document.getElementById('testimonial-modal-bg');
+    const modal = document.getElementById('testimonial-modal');
+    function openTestimonialModal(idx) {
+        modal.innerHTML = '<button class="close-btn" onclick="closeTestimonialModal(event)">×</button>' + testimonials[idx].innerHTML;
+        modalBg.style.display = 'flex';
+    }
+    function closeTestimonialModal(e) {
+        if (!e || e.target === modalBg || e.target.classList.contains('close-btn')) {
+            modalBg.style.display = 'none';
+        }
+    }
+    </script>
+    <!-- פופאפ גיל 18 -->
+    <div id="age-popup" style="display:flex; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#000a; z-index:200000; align-items:center; justify-content:center;">
+        <div style="background:#fff; border-radius:18px; max-width:340px; width:90vw; padding:32px 18px 22px 18px; box-shadow:0 4px 32px #0002; position:relative; text-align:center; animation:bounceIn 0.7s cubic-bezier(.68,-0.55,.27,1.55);">
+            <div style="font-size:1.4em; font-weight:bold; color:#e6007a; margin-bottom:12px;">האם אתה מעל גיל 18?</div>
+            <div style="font-size:1.1em; color:#2d2d2d; margin-bottom:18px;">האתר מיועד לגילאי 18 ומעלה בלבד</div>
+            <button onclick="closeAgePopup()" style="background:linear-gradient(90deg,#ff5aad 0%,#ff7e5f 100%); color:#fff; border:none; border-radius:8px; padding:12px 32px; font-size:1.1em; font-weight:bold; margin:0 8px; cursor:pointer;">כן</button>
+            <button onclick="window.location.href='https://www.google.com'" style="background:#fff; color:#e6007a; border:2px solid #e6007a; border-radius:8px; padding:12px 32px; font-size:1.1em; font-weight:bold; margin:0 8px; cursor:pointer;">לא</button>
+        </div>
+    </div>
+    <script>
+    // פופאפ גיל 18
+    function closeAgePopup() {
+        document.getElementById('age-popup').style.display = 'none';
+        document.getElementById('promo-popup').style.display = 'flex';
+        if (typeof launchConfetti === 'function') launchConfetti();
+    }
+    window.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('age-popup').style.display = 'flex';
+        document.getElementById('promo-popup').style.display = 'none';
+    });
+    </script>
+    <script>
+    // תפריט תשלום מרוכז
+    document.getElementById('open-payment-menu').onclick = function() {
+        document.getElementById('payment-menu').style.display = 'flex';
+    };
     </script>
 </body>
 </html> 
