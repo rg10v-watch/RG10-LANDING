@@ -583,7 +583,7 @@
             <b>צריך רק לקנות נוזל פעם בחודש ב-50 ש"ח וכך לחסוך למעשה אלפי שקלים בשנה!</b>
         </div>
         <div class="video" style="display: flex; justify-content: center; margin-bottom: 18px;">
-            <video controls width="100%" style="border-radius:12px;max-width:320px;">
+            <video controls autoplay muted width="100%" style="border-radius:12px;max-width:320px;">
                 <source src="וידאו של WhatsApp‏ 2025-04-27 בשעה 14.43.55_890c578f.mp4" type="video/mp4">
                 הדפדפן שלך לא תומך בניגון וידאו.
             </video>
@@ -593,8 +593,8 @@
           <ul style="margin:12px 0 0 0; padding-right:18px; line-height:2;">
             <li>שעון חכם RG10</li>
             <li>פוד רב פעמי</li>
-            <li>רצועה לבנה</li>
-            <li>רצועה שחורה</li>
+            <li>רצועת סטייל לבנה</li>
+            <li>רצועת סטייל שחורה</li>
             <li>30,000 שאיפות מתנה (מגיע בטעמי אייס מרענן)</li>
           </ul>
         </div>
@@ -603,6 +603,7 @@
             <li><span class="icon" style="color:#bdbdbd;">⚙️</span>שליטה בעוצמת השאיפה – מותאם אישית</li>
             <li><span class="icon" style="color:#e6007a;">⌚</span>חיבור מגנטי חכם – שליפה קלה לעישון בכל רגע</li>
             <li><span class="icon" style="color:#7c4dff;">🎵</span>פנס, מוזיקה, שיחות, משחקים, שעון מעורר ועוד</li>
+            <li><span class="icon" style="color:#43b324;">👣</span>מד סופר צעדים ומרחק</li>
             <li><span class="icon" style="color:#e6007a;">📱</span>התחברות בלוטוס קלה לכל סוגי הטלפונים</li>
             <li><span class="icon" style="color:#43b324;">🍭</span>ניתן למלא את הפוד באיזה טעם שרוצים</li>
             <li><span class="icon" style="color:#43b324;">🔋</span>סוללה עוצמתית 650mAh</li>
@@ -976,6 +977,17 @@
         document.getElementById('age-popup').style.display = 'none';
         document.getElementById('promo-popup').style.display = 'flex';
         if (typeof launchConfetti === 'function') launchConfetti();
+        // הפעלת וידאו עם קול
+        var video = document.querySelector('.video video');
+        if(video) {
+            video.muted = false;
+            var playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(function(error) {
+                    // דפדפנים מסוימים עדיין עשויים לחסום
+                });
+            }
+        }
     }
     window.addEventListener('DOMContentLoaded', function() {
         document.getElementById('age-popup').style.display = 'flex';
