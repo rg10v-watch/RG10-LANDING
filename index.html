@@ -707,7 +707,7 @@
                 <div style="font-size:1.2em; font-weight:bold; color:#e6007a; margin-bottom:18px;">בחר אמצעי תשלום</div>
                 <button class="cta-btn" style="margin-bottom:10px;" onclick="openPopup('bit'); document.getElementById('payment-menu').style.display='none'">תשלום בביט</button>
                 <button class="cta-btn" style="margin-bottom:10px;" onclick="openPopup('credit'); document.getElementById('payment-menu').style.display='none'">תשלום בכרטיס אשראי</button>
-                <button class="cta-btn" style="margin-bottom:0; background:#0070ba;" onclick="window.location.href='https://www.paypal.com/paypalme/rotemg768@gmail.com'; document.getElementById('payment-menu').style.display='none'">
+                <button class="cta-btn" style="margin-bottom:0; background:#0070ba;" onclick="window.location.href='https://www.paypal.me/SAYERETGOLANI631/329ILS'; document.getElementById('payment-menu').style.display='none'">
                     <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal" style="height: 20px; margin-right: 5px; vertical-align:middle;"> תשלום ב-PayPal
                 </button>
             </div>
@@ -795,14 +795,6 @@
 
         <div class="contact-form">
             <button class="secondary-btn" onclick="openPopup('details')">השאר פרטים</button>
-        </div>
-        <div class="whatsapp-button">
-            <a href="https://wa.me/972557216267" target="_blank">
-                <i class="fab fa-whatsapp"></i> צור קשר ב-WhatsApp
-            </a>
-        </div>
-        <div style="text-align:center; margin: 20px 0;">
-            <button class="cta-btn" onclick="openPopup('order')">הזמן עכשיו</button>
         </div>
         <div style="text-align:center; color:#e6007a; font-weight:bold; font-size:1.1em; margin:18px 0 0 0;">המשלוח סופר מהיר עד 3 ימי עסקים לכל הארץ!</div>
         <div class="footer">כל הזכויות שמורות © RG10</div>
@@ -941,11 +933,26 @@
     overlay.onclick = function(e){ if(e.target===overlay) overlay.style.display='none'; };
     // שליחה
     const form = document.getElementById('popup-inner-form');
-    form.onsubmit = function() {
-        setTimeout(function() {
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(function(response) {
             document.getElementById('popup-inner-form').style.display = 'none';
             document.getElementById('popup-thankyou').style.display = 'block';
-        }, 100);
+            setTimeout(function() {
+                document.getElementById('popup-overlay').style.display = 'none';
+            }, 2500);
+            form.reset();
+        }).catch(function(error) {
+            alert('אירעה שגיאה בשליחת הטופס. נסה שוב.');
+        });
+        return false;
     };
     </script>
     <script>
@@ -1087,6 +1094,36 @@
     document.getElementById('open-payment-menu-2').onclick = function() {
         document.getElementById('payment-menu').style.display = 'flex';
     };
+    </script>
+    <script>
+    // ... existing code ...
+    window.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('popup-inner-form');
+        if (form) {
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(function(response) {
+                    document.getElementById('popup-inner-form').style.display = 'none';
+                    document.getElementById('popup-thankyou').style.display = 'block';
+                    setTimeout(function() {
+                        document.getElementById('popup-overlay').style.display = 'none';
+                    }, 2500);
+                    form.reset();
+                }).catch(function(error) {
+                    alert('אירעה שגיאה בשליחת הטופס. נסה שוב.');
+                });
+                return false;
+            };
+        }
+    });
+    // ... existing code ...
     </script>
 </body>
 </html> 
