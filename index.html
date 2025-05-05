@@ -647,7 +647,13 @@
             <button class="cta-btn" id="open-payment-menu">קנו עכשיו במחיר המשתלם ביותר בעולם. רק 299 שח לסט מלא!</button>
         </div>
         <div class="video" style="display: flex; justify-content: center; margin-bottom: 18px;">
-            <video controls autoplay muted playsinline webkit-playsinline width="100%" style="border-radius:12px;max-width:360px;height:280px;">
+            <video controls autoplay muted playsinline webkit-playsinline width="100%" style="border-radius:12px;max-width:400px;height:320px;">
+                <source src="עופר ברקן 1.mov" type="video/mp4">
+                הדפדפן שלך לא תומך בניגון וידאו.
+            </video>
+        </div>
+        <div class="video" style="display: flex; justify-content: center; margin-bottom: 18px;">
+            <video controls playsinline webkit-playsinline width="100%" style="border-radius:12px;max-width:360px;height:280px;">
                 <source src="סרטון הסבר RG10.mp4" type="video/mp4">
                 הדפדפן שלך לא תומך בניגון וידאו.
             </video>
@@ -780,7 +786,7 @@
         </div>
 
         <div class="contact-form">
-            <button class="secondary-btn">השאר פרטים</button>
+            <button class="secondary-btn" onclick="openPopup('details')">השאר פרטים</button>
         </div>
         <div style="text-align:center; color:#e6007a; font-weight:bold; font-size:1.1em; margin:18px 0 0 0;">המשלוח סופר מהיר עד 3 ימי עסקים לכל הארץ!</div>
         <div class="footer">כל הזכויות שמורות © RG10</div>
@@ -799,7 +805,7 @@
         <div id="popup-form" style="background:#fff; border-radius:16px; max-width:340px; width:90vw; padding:28px 18px 18px 18px; box-shadow:0 4px 32px #0002; position:relative;">
             <button id="popup-close" aria-label="סגור" style="position:absolute; left:12px; top:12px; background:none; border:none; font-size:1.5em; color:#e6007a; cursor:pointer;">×</button>
             <div id="popup-title" style="font-size:1.2em; font-weight:bold; color:#e6007a; margin-bottom:12px;"></div>
-            <form id="popup-inner-form" action="https://formspree.io/f/mqaqppjw" method="POST">
+            <form id="popup-inner-form" action="https://formspree.io/f/xnnddjya" method="POST">
                 <div id="popup-fields"></div>
                 <button type="submit" style="width:100%; background:linear-gradient(90deg,#ff5aad 0%,#ff7e5f 100%); color:#fff; border:none; border-radius:8px; padding:12px 0; font-size:1.1em; font-weight:bold; margin-top:12px; cursor:pointer;">שלח</button>
             </form>
