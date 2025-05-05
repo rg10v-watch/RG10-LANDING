@@ -654,8 +654,8 @@
             <button class="cta-btn" id="open-payment-menu-2" onclick="document.getElementById('payment-menu').style.display='flex'">קנו עכשיו במחיר המשתלם ביותר בעולם. רק 299 שח לסט מלא!</button>
         </div>
         <div class="video" style="display: flex; justify-content: center; margin-bottom: 18px;">
-            <video controls autoplay muted playsinline webkit-playsinline width="100%" style="border-radius:12px;max-width:400px;height:320px;">
-                <source src="1_QXVty8S4.mp4" type="video/mp4">
+            <video controls autoplay muted playsinline webkit-playsinline width="100%" style="border-radius:12px;max-width:100%;height:400px;">
+                <source src="עופר ברקן.mp4" type="video/mp4">
                 הדפדפן שלך לא תומך בניגון וידאו.
             </video>
         </div>
@@ -707,7 +707,7 @@
                 <div style="font-size:1.2em; font-weight:bold; color:#e6007a; margin-bottom:18px;">בחר אמצעי תשלום</div>
                 <button class="cta-btn" style="margin-bottom:10px;" onclick="openPopup('bit'); document.getElementById('payment-menu').style.display='none'">תשלום בביט</button>
                 <button class="cta-btn" style="margin-bottom:10px;" onclick="openPopup('credit'); document.getElementById('payment-menu').style.display='none'">תשלום בכרטיס אשראי</button>
-                <button class="cta-btn" style="margin-bottom:0; background:#0070ba;" onclick="window.location.href='https://www.paypal.me/SAYERETGOLANI631/329ILS'; document.getElementById('payment-menu').style.display='none'">
+                <button class="cta-btn" style="margin-bottom:0; background:#0070ba;" onclick="openPopup('paypal'); document.getElementById('payment-menu').style.display='none'">
                     <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png" alt="PayPal" style="height: 20px; margin-right: 5px; vertical-align:middle;"> תשלום ב-PayPal (כולל 30 ש"ח משלוח מהיר)
                 </button>
             </div>
@@ -923,6 +923,19 @@
                     <input name="cvv" required placeholder="CVV" style="width:50%;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
                 </div>
             `;
+        } else if(type === 'paypal') {
+            title = 'תשלום ב-PayPal';
+            fields = `
+                <input name="name" required placeholder="שם מלא" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="phone" required placeholder="טלפון" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="email" required placeholder="אימייל" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="city" required placeholder="עיר" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="street" required placeholder="רחוב" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="house_number" required placeholder="מספר בית" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="apartment" placeholder="דירה (לא חובה)" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="postal_code" required placeholder="מיקוד" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <textarea name="note" placeholder="הערות (לא חובה)" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;resize:vertical;"></textarea>
+            `;
         }
         document.getElementById('popup-title').innerHTML = title;
         document.getElementById('popup-fields').innerHTML = fields;
@@ -947,10 +960,16 @@
             }
         }).then(function(response) {
             document.getElementById('popup-inner-form').style.display = 'none';
+            // בדיקה אם זה טופס PayPal
+            if (document.getElementById('popup-title').innerText.indexOf('PayPal') !== -1) {
+                document.getElementById('popup-thankyou').innerHTML = '<div style="color:#43b324; font-weight:bold; font-size:1.1em; text-align:center; margin-top:18px;">תודה! ניתן להמשיך לתשלום ב-PayPal:</div><a href="https://www.paypal.me/SAYERETGOLANI631/329ILS" target="_blank" style="display:inline-block;margin:18px auto 0 auto;padding:12px 32px;background:#0070ba;color:#fff;border-radius:8px;font-size:1.1em;font-weight:bold;text-decoration:none;"><img src=\"https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png\" alt=\"PayPal\" style=\"height: 20px; margin-left: 8px; vertical-align:middle;\">המשך לתשלום ב-PayPal</a>';
+            } else {
+                document.getElementById('popup-thankyou').innerHTML = 'תודה! נחזור אליך בהקדם.';
+                setTimeout(function() {
+                    document.getElementById('popup-overlay').style.display = 'none';
+                }, 2500);
+            }
             document.getElementById('popup-thankyou').style.display = 'block';
-            setTimeout(function() {
-                document.getElementById('popup-overlay').style.display = 'none';
-            }, 2500);
             form.reset();
         }).catch(function(error) {
             alert('אירעה שגיאה בשליחת הטופס. נסה שוב.');
