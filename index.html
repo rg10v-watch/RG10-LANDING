@@ -39,16 +39,76 @@
         }
         .main-title {
             color: #e6007a;
-            font-size: 1.3em;
+            font-size: 1.5em;
             margin: 0 0 10px 0;
             text-align: center;
             font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(230,0,122,0.2);
+            padding: 15px;
+            background: linear-gradient(90deg, #fff0f6 0%, #e0ffe8 100%);
+            border-radius: 12px;
+            border: 2px solid #e6007a44;
+            box-shadow: 0 4px 16px rgba(230,0,122,0.15);
         }
         .subtitle {
             color: #e6007a;
             font-weight: bold;
             text-align: center;
             margin-bottom: 18px;
+            font-size: 1.3em;
+            text-shadow: 1px 1px 2px rgba(230,0,122,0.1);
+            animation: pulse 2s infinite;
+            padding: 10px;
+            background: linear-gradient(90deg, #ffe8f3 0%, #f8e8ff 100%);
+            border-radius: 8px;
+            border: 2px solid #e6007a44;
+            position: relative;
+            overflow: hidden;
+        }
+        .subtitle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(230,0,122,0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(230,0,122,0.4);
+            }
+            70% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 10px rgba(230,0,122,0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(230,0,122,0);
+            }
+        }
+        @keyframes shine {
+            0% {
+                left: -50%;
+            }
+            100% {
+                left: 150%;
+            }
+        }
+        .price-title {
+            color: #e6007a;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 18px;
+            font-size: 1.2em;
         }
         .video {
             display: flex;
@@ -58,8 +118,8 @@
         .video video {
             border-radius: 12px;
             width: 100%;
-            max-width: 320px;
-            height: 180px;
+            max-width: 360px;
+            height: 280px;
         }
         ul.features {
             list-style: none;
@@ -120,16 +180,21 @@
             background: linear-gradient(90deg, #ff5aad 0%, #ff7e5f 100%);
             color: #fff;
             border: none;
-            border-radius: 8px;
-            padding: 14px 0;
-            font-size: 1.1em;
+            border-radius: 12px;
+            padding: 18px 0;
+            font-size: 1.3em;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 24px;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(230,0,122,0.3);
+            animation: pulse 2s infinite;
         }
         .cta-btn:hover {
             background: linear-gradient(90deg, #ff7e5f 0%, #ff5aad 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230,0,122,0.4);
         }
         .secondary-btn {
             width: 100%;
@@ -577,14 +642,13 @@
         <div class="logo">
             <img src="logo.png.png" alt="RG10 לוגו">
         </div>
-        <div class="main-title">RG10 – השעון החכם הראשון בעולם שהוא גם וייפ רב-פעמי!</div>
-        <div style="text-align:center; margin-bottom: 10px;">
-            <b>חוסכים מאות שקלים כל חודש – לא צריך לקנות וייפ חדש כל שבועיים!</b><br>
-            <b>צריך רק לקנות נוזל פעם בחודש ב-50 ש"ח וכך לחסוך למעשה אלפי שקלים בשנה!</b>
+        <h1 class="main-title">RG10 - השעון החכם הראשון בעולם שהוא גם וייפ רב-פעמי!</h1>
+        <div style="text-align:center; margin-bottom: 18px;">
+            <button class="cta-btn" id="open-payment-menu">קנו עכשיו במחיר המשתלם ביותר בעולם. רק 299 שח לסט מלא!</button>
         </div>
         <div class="video" style="display: flex; justify-content: center; margin-bottom: 18px;">
-            <video controls autoplay muted playsinline webkit-playsinline width="100%" style="border-radius:12px;max-width:320px;">
-                <source src="וידאו של WhatsApp‏ 2025-04-27 בשעה 14.43.55_890c578f.mp4" type="video/mp4">
+            <video controls autoplay muted playsinline webkit-playsinline width="100%" style="border-radius:12px;max-width:360px;height:280px;">
+                <source src="סרטון הסבר RG10.mp4" type="video/mp4">
                 הדפדפן שלך לא תומך בניגון וידאו.
             </video>
         </div>
@@ -617,9 +681,6 @@
                 <b style="color:#e6007a; font-size:1.1em;">היזהרו מחיקויים!</b><br>
                 <img src="logo.png.png" alt="לוגו RG10" style="height:1.2em; vertical-align:middle; margin-left:4px; margin-bottom:2px; background:#fff; border-radius:4px; box-shadow:0 1px 4px #e6007a22; padding:1px 4px; display:inline;">הוא מוצר חדשני ובלעדי שהמותג שלנו הביא לישראל – פיתוח ייחודי שטרם קיים בעולם. רק אצלנו תמצאו את המקור האמיתי, עם איכות ושירות מלא.
             </div>
-        </div>
-        <div style="text-align:center; margin-bottom: 18px;">
-            <button class="cta-btn" id="open-payment-menu">הזמן עכשיו וחסוך מאות שקלים!</button>
         </div>
         <div class="whatsapp-button">
             <a href="https://wa.me/972557216267" target="_blank">
