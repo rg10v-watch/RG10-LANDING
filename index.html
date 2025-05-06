@@ -929,6 +929,64 @@
             font-size: 1.7em;
           }
         }
+        @media (max-width: 899px) {
+          .included-box { display: none !important; }
+          .included-mobile {
+            background: linear-gradient(90deg,#fff0f6 0%,#e0ffe8 100%);
+            border-radius: 22px;
+            box-shadow: 0 4px 16px #e6007a22;
+            border: 2px solid #e6007a44;
+            padding: 24px 10px 18px 10px;
+            margin: 24px 0;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            max-width: 98vw;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .included-mobile b {
+            color: #e6007a;
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+          }
+          .included-mobile ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          .included-mobile li {
+            margin-bottom: 12px;
+            font-weight: normal;
+            color: #2d2d2d;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px #e6007a11;
+            padding: 10px 0 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.08em;
+          }
+          .included-mobile li .icon {
+            font-size: 1.5em;
+            margin-left: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fff 60%, #f8e8ff 100%);
+            box-shadow: 0 2px 8px #e6007a22;
+          }
+        }
+        @media (min-width: 900px) {
+          .included-mobile { display: none !important; }
+        }
     </style>
 </head>
 <body>
@@ -953,30 +1011,16 @@
                 הדפדפן שלך לא תומך בניגון וידאו.
             </video>
         </div>
-        <div class="included-box">
-            <b>מה כלול בסט?</b>
-            <div class="included-cards">
-                <div class="included-card">
-                    <div class="icon">⌚</div>
-                    <div class="text">שעון חכם RG10</div>
-                </div>
-                <div class="included-card">
-                    <div class="icon">🔁</div>
-                    <div class="text">פוד רב פעמי</div>
-                </div>
-                <div class="included-card">
-                    <div class="icon">🤍</div>
-                    <div class="text">רצועת סטייל לבנה</div>
-                </div>
-                <div class="included-card">
-                    <div class="icon">🖤</div>
-                    <div class="text">רצועת סטייל שחורה</div>
-                </div>
-                <div class="included-card">
-                    <div class="icon">🎁</div>
-                    <div class="text">30,000 שאיפות מתנה (מגיע בטעמי אייס מרענן)</div>
-                </div>
-            </div>
+        <!-- Mobile only: מה כלול בסט -->
+        <div class="included-mobile">
+          <b>מה כלול בסט?</b>
+          <ul>
+            <li><span class="icon" style="color:#e6007a;">⌚</span>שעון חכם RG10</li>
+            <li><span class="icon" style="color:#43b324;">🔁</span>פוד רב פעמי</li>
+            <li><span class="icon" style="color:#888;">🤍</span>רצועת סטייל לבנה</li>
+            <li><span class="icon" style="color:#222;">🖤</span>רצועת סטייל שחורה</li>
+            <li><span class="icon" style="color:#7c4dff;">🎁</span>30,000 שאיפות מתנה (מגיע בטעמי אייס מרענן)</li>
+          </ul>
         </div>
         <ul class="features">
             <li><span class="icon" style="color:#43b324;">🔥</span>וייפ רב-פעמי – חיסכון משמעותי בעלויות</li>
