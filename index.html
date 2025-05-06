@@ -635,6 +635,105 @@
             margin-left: 4px;
             margin-right: 0;
         }
+        @media (min-width: 900px) {
+            body {
+                background: linear-gradient(120deg, #fff 0%, #e0ffe8 100%);
+            }
+            .container {
+                max-width: 900px;
+                margin: 40px auto;
+                padding: 40px 40px 30px 40px;
+                border-radius: 24px;
+                box-shadow: 0 8px 32px rgba(230,0,122,0.10);
+            }
+            .main-title {
+                font-size: 2.2em;
+                margin-bottom: 24px;
+            }
+            .video video {
+                max-width: 700px;
+                height: 420px;
+            }
+            /* תפריט עליון */
+            .desktop-nav {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 32px;
+                background: #fff;
+                border-radius: 18px 18px 0 0;
+                box-shadow: 0 2px 12px #e6007a11;
+                padding: 18px 32px 10px 32px;
+                margin-bottom: 18px;
+            }
+            .desktop-nav a {
+                color: #e6007a;
+                font-weight: bold;
+                text-decoration: none;
+                font-size: 1.1em;
+                transition: color 0.2s;
+            }
+            .desktop-nav a:hover {
+                color: #ff7e5f;
+            }
+            /* המלצות בולטות בדסקטופ */
+            .testimonials-section > div > img,
+            .testimonials-section > div > div > img {
+                max-width: 99% !important;
+                max-height: 240px !important;
+                border-radius: 28px !important;
+                box-shadow: 0 8px 32px #e6007a44, 0 2px 8px #0001;
+                border: 3px solid #e6007a33;
+                background: #fff0f6;
+                transition: box-shadow 0.2s, border-color 0.2s;
+            }
+            .testimonials-section > div > div {
+                padding: 18px 10px !important;
+                border-radius: 28px !important;
+                background: #fff0f6;
+                box-shadow: 0 8px 32px #e6007a22, 0 2px 8px #0001;
+                border: 3px solid #e6007a33;
+                transition: box-shadow 0.2s, border-color 0.2s;
+            }
+            .testimonials-section > div > img:hover,
+            .testimonials-section > div > div:hover {
+                box-shadow: 0 12px 40px #e6007a66, 0 4px 16px #0002;
+                border-color: #e6007a99;
+            }
+        }
+        /* גלריית המלצות בגריד 3x2 בדסקטופ - תופסות את כל הרוחב */
+        .testimonials-section > div {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 12px;
+            min-height: unset;
+            justify-content: flex-start;
+            max-width: none !important;
+            width: 100%;
+        }
+        .testimonials-section > div > * {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+        .testimonials-section > div > img,
+        .testimonials-section > div > div > img {
+            max-width: 100% !important;
+            max-height: 340px !important;
+            border-radius: 28px !important;
+            box-shadow: 0 2px 12px #0001;
+            border: none;
+            background: #fff;
+            transition: none;
+        }
+        .testimonials-section > div > div {
+            padding: 18px 10px !important;
+            border-radius: 28px !important;
+            background: #fff;
+            box-shadow: 0 2px 12px #0001;
+            border: none;
+            transition: none;
+        }
     </style>
 </head>
 <body>
@@ -654,14 +753,8 @@
             <button class="cta-btn" id="open-payment-menu-2" onclick="document.getElementById('payment-menu').style.display='flex'">קנו עכשיו במחיר המשתלם ביותר בעולם. רק 299 שח לסט מלא!</button>
         </div>
         <div class="video" style="display: flex; justify-content: center; margin-bottom: 18px;">
-            <video controls autoplay muted playsinline webkit-playsinline width="100%" style="border-radius:12px;max-width:100%;height:400px;">
-                <source src="עופר ברקן.mp4" type="video/mp4">
-                הדפדפן שלך לא תומך בניגון וידאו.
-            </video>
-        </div>
-        <div class="video" style="display: flex; justify-content: center; margin-bottom: 18px;">
-            <video controls playsinline webkit-playsinline width="100%" style="border-radius:12px;max-width:360px;height:280px;">
-                <source src="סרטון הסבר RG10.mp4" type="video/mp4">
+            <video controls playsinline webkit-playsinline width="100%" style="border-radius:12px;max-width:100%;height:400px;">
+                <source src="קובץ הסבר מוצר עופר.mp4" type="video/mp4">
                 הדפדפן שלך לא תומך בניגון וידאו.
             </video>
         </div>
@@ -1091,16 +1184,18 @@
         document.getElementById('age-popup').style.display = 'none';
         document.getElementById('promo-popup').style.display = 'flex';
         if (typeof launchConfetti === 'function') launchConfetti();
-        // הפעלת וידאו עם קול
+        // הפעלת וידאו עם קול לאחר 2 שניות
         var video = document.querySelector('.video video');
         if(video) {
-            video.muted = false;
-            var playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(function(error) {
-                    // דפדפנים מסוימים עדיין עשויים לחסום
-                });
-            }
+            setTimeout(function() {
+                video.muted = false;
+                var playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(function(error) {
+                        // דפדפנים מסוימים עדיין עשויים לחסום
+                    });
+                }
+            }, 2000);
         }
     }
     window.addEventListener('DOMContentLoaded', function() {
@@ -1146,6 +1241,88 @@
         }
     });
     // ... existing code ...
+    </script>
+    <script>
+    // הפעלת הוידאו הראשון לאחר 3 שניות מטעינת הדף
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            var video = document.querySelector('.video video');
+            if(video) {
+                video.play();
+            }
+        }, 3000);
+    });
+    </script>
+    <div class="desktop-nav" style="display:none">
+        <a href="#faq">שאלות נפוצות</a>
+        <a href="#order">הזמן עכשיו</a>
+        <a href="#testimonials">המלצות</a>
+    </div>
+    <script>
+    // הצגת תפריט עליון רק בדסקטופ
+    window.addEventListener('DOMContentLoaded', function() {
+        if(window.innerWidth >= 900) {
+            document.querySelector('.desktop-nav').style.display = 'flex';
+        }
+    });
+    </script>
+    <!-- תפריט נגישות אמיתי -->
+    <div id="accessibility-menu" style="display:none; position:fixed; left:24px; bottom:90px; z-index:10000; background:#fff; border-radius:16px; box-shadow:0 4px 24px #e6007a33; padding:18px 18px 12px 18px; min-width:180px;">
+        <div style="font-weight:bold; color:#e6007a; margin-bottom:10px;">תפריט נגישות</div>
+        <button onclick="changeFontSize(1)" style="width:100%;margin-bottom:8px;padding:8px 0;border:none;border-radius:8px;background:#e6007a;color:#fff;font-weight:bold;cursor:pointer;">הגדל טקסט</button>
+        <button onclick="changeFontSize(-1)" style="width:100%;margin-bottom:8px;padding:8px 0;border:none;border-radius:8px;background:#e6007a;color:#fff;font-weight:bold;cursor:pointer;">הקטן טקסט</button>
+        <button onclick="toggleContrast()" style="width:100%;margin-bottom:8px;padding:8px 0;border:none;border-radius:8px;background:#e6007a;color:#fff;font-weight:bold;cursor:pointer;">ניגודיות גבוהה</button>
+        <button onclick="resetAccessibility()" style="width:100%;padding:8px 0;border:none;border-radius:8px;background:#888;color:#fff;font-weight:bold;cursor:pointer;">איפוס</button>
+    </div>
+    <script>
+    // פתיחה/סגירה של תפריט הנגישות
+    const accBtn = document.getElementById('accessibility-btn');
+    const accMenu = document.getElementById('accessibility-menu');
+    accBtn.onclick = function() {
+        accMenu.style.display = accMenu.style.display === 'none' ? 'block' : 'none';
+    };
+    // סגירה בלחיצה מחוץ
+    document.addEventListener('click', function(e) {
+        if(accMenu.style.display === 'block' && !accMenu.contains(e.target) && e.target !== accBtn) {
+            accMenu.style.display = 'none';
+        }
+    });
+    // פונקציות נגישות
+    let fontSizeLevel = 0;
+    function changeFontSize(dir) {
+        fontSizeLevel += dir;
+        document.body.style.fontSize = (1 + fontSizeLevel*0.1) + 'em';
+    }
+    let highContrast = false;
+    function toggleContrast() {
+        highContrast = !highContrast;
+        if(highContrast) {
+            document.body.style.background = '#000';
+            document.body.style.color = '#fff';
+            document.querySelectorAll('.container, .testimonials-section, .faq-section, .payment-section').forEach(function(el){
+                el.style.background = '#222';
+                el.style.color = '#fff';
+            });
+        } else {
+            document.body.style.background = '';
+            document.body.style.color = '';
+            document.querySelectorAll('.container, .testimonials-section, .faq-section, .payment-section').forEach(function(el){
+                el.style.background = '';
+                el.style.color = '';
+            });
+        }
+    }
+    function resetAccessibility() {
+        fontSizeLevel = 0;
+        document.body.style.fontSize = '';
+        highContrast = false;
+        document.body.style.background = '';
+        document.body.style.color = '';
+        document.querySelectorAll('.container, .testimonials-section, .faq-section, .payment-section').forEach(function(el){
+            el.style.background = '';
+            el.style.color = '';
+        });
+    }
     </script>
 </body>
 </html> 
