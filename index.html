@@ -728,15 +728,30 @@
                 text-align: center;
                 line-height: 1.5;
             }
-            @media (max-width: 700px) {
+            @media (max-width: 899px) {
                 .included-cards {
-                    flex-direction: column;
-                    gap: 18px;
-                    align-items: center;
+                    flex-direction: column !important;
+                    gap: 18px !important;
+                    align-items: center !important;
                 }
                 .included-card {
-                    min-width: 90vw;
-                    max-width: 98vw;
+                    min-width: 90vw !important;
+                    max-width: 98vw !important;
+                }
+            }
+            @media (min-width: 900px) {
+                .included-cards {
+                    flex-direction: row !important;
+                    flex-wrap: wrap !important;
+                    justify-content: center !important;
+                    gap: 32px 36px !important;
+                    width: 100% !important;
+                    max-width: 900px !important;
+                }
+                .included-card {
+                    min-width: 180px !important;
+                    max-width: 220px !important;
+                    flex: 1 1 180px !important;
                 }
             }
             .included-box ul {
