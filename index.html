@@ -737,18 +737,47 @@
         }
         /* גלריית המלצות בגריד 3x2 בדסקטופ - תופסות את כל הרוחב */
         .testimonials-section > div {
-            display: grid !important;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, auto);
-            gap: 12px;
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 14px;
+            width: 100%;
             min-height: unset;
             justify-content: flex-start;
-            max-width: none !important;
-            width: 100%;
+            padding-bottom: 8px;
         }
         .testimonials-section > div > * {
+            min-width: 82vw;
+            max-width: 92vw;
             margin-top: 0 !important;
             margin-bottom: 0 !important;
+            box-shadow: 0 4px 18px #e6007a22, 0 2px 8px #0001;
+            border-radius: 22px !important;
+            border: 2.5px solid #e6007a33;
+            background: #fff0f6;
+        }
+        @media (min-width: 900px) {
+            .testimonials-section > div {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, auto);
+                gap: 18px;
+                min-height: unset;
+                justify-content: flex-start;
+                max-width: none !important;
+                width: 100%;
+                overflow-x: unset;
+                padding-bottom: 0;
+            }
+            .testimonials-section > div > * {
+                min-width: unset;
+                max-width: 100%;
+                box-shadow: 0 2px 12px #0001;
+                border-radius: 28px !important;
+                border: none;
+                background: #fff;
+            }
         }
         .testimonials-section > div > img,
         .testimonials-section > div > div > img {
