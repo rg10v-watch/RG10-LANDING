@@ -797,6 +797,30 @@
             border: none;
             transition: none;
         }
+        /* במובייל: המלצות בגלילה אנכית (מלמעלה למטה) */
+        @media (max-width: 899px) {
+            .testimonials-section > div {
+                display: flex !important;
+                flex-direction: column !important;
+                flex-wrap: nowrap;
+                overflow-x: unset;
+                gap: 18px;
+                width: 100%;
+                min-height: unset;
+                justify-content: flex-start;
+                padding-bottom: 8px;
+            }
+            .testimonials-section > div > * {
+                min-width: 100%;
+                max-width: 100%;
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+                box-shadow: 0 4px 18px #e6007a22, 0 2px 8px #0001;
+                border-radius: 22px !important;
+                border: 2.5px solid #e6007a33;
+                background: #fff0f6;
+            }
+        }
     </style>
 </head>
 <body>
