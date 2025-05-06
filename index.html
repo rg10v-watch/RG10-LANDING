@@ -650,55 +650,89 @@
                 font-size: 2.2em;
                 margin-bottom: 24px;
             }
-            .video video {
-                max-width: 700px;
-                height: 420px;
-            }
-            /* תפריט עליון */
-            .desktop-nav {
+            .included-box {
+                max-width: 100%;
+                margin: 40px 0 40px 0;
+                padding: 38px 54px 38px 54px;
+                border-radius: 32px;
+                background: linear-gradient(100deg,#fff0f6 0%,#e0ffe8 100%, #e0f7fa 100%);
+                box-shadow: 0 12px 48px #e6007a22, 0 2px 12px #00bcd422;
+                border: 4px solid #e6007a44;
+                font-size: 1.25em;
                 display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                gap: 32px;
-                background: #fff;
-                border-radius: 18px 18px 0 0;
-                box-shadow: 0 2px 12px #e6007a11;
-                padding: 18px 32px 10px 32px;
-                margin-bottom: 18px;
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 48px;
+                min-height: 220px;
             }
-            .desktop-nav a {
+            .included-box b {
+                font-size: 1.45em;
                 color: #e6007a;
+                margin-left: 36px;
+                display: flex;
+                align-items: center;
                 font-weight: bold;
-                text-decoration: none;
+                letter-spacing: 0.5px;
+                text-shadow: 0 2px 8px #fff, 0 1px 0 #e6007a22;
+            }
+            .included-box b::before {
+                content: '🎁';
+                font-size: 2.2em;
+                margin-left: 18px;
+                filter: drop-shadow(0 2px 6px #e6007a33);
+            }
+            .included-box ul {
+                margin: 0;
+                padding-right: 0;
+                line-height: 2.3;
+                font-size: 1.18em;
+                list-style: none;
+            }
+            .included-box ul li {
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                font-size: 1.08em;
+                color: #2d2d2d;
+                font-weight: 500;
+                letter-spacing: 0.2px;
+            }
+            .included-box ul li::before {
+                content: '✔️';
                 font-size: 1.1em;
-                transition: color 0.2s;
+                margin-left: 10px;
+                color: #43b324;
+                filter: drop-shadow(0 1px 2px #43b32422);
             }
-            .desktop-nav a:hover {
-                color: #ff7e5f;
+            ul.features {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 22px 18px;
+                margin: 0 0 28px 0;
+                padding-top: 18px;
+                border-top: 3px solid #e6007a;
             }
-            /* המלצות בולטות בדסקטופ */
-            .testimonials-section > div > img,
-            .testimonials-section > div > div > img {
-                max-width: 99% !important;
-                max-height: 240px !important;
-                border-radius: 28px !important;
-                box-shadow: 0 8px 32px #e6007a44, 0 2px 8px #0001;
-                border: 3px solid #e6007a33;
-                background: #fff0f6;
+            ul.features li {
+                font-size: 1.13em;
+                padding: 22px 18px;
+                border-radius: 18px;
+                box-shadow: 0 4px 18px #e6007a11;
+                border: 2px solid #e6007a22;
+                background: linear-gradient(90deg,#fff0f6 0%,#e0ffe8 100%);
+                display: flex;
+                align-items: center;
+                gap: 18px;
                 transition: box-shadow 0.2s, border-color 0.2s;
             }
-            .testimonials-section > div > div {
-                padding: 18px 10px !important;
-                border-radius: 28px !important;
-                background: #fff0f6;
-                box-shadow: 0 8px 32px #e6007a22, 0 2px 8px #0001;
-                border: 3px solid #e6007a33;
-                transition: box-shadow 0.2s, border-color 0.2s;
+            ul.features li .icon {
+                font-size: 2.1em;
+                width: 48px;
+                height: 48px;
+                margin-left: 18px;
             }
-            .testimonials-section > div > img:hover,
-            .testimonials-section > div > div:hover {
-                box-shadow: 0 12px 40px #e6007a66, 0 4px 16px #0002;
-                border-color: #e6007a99;
+            ul.features li:hover {
+                box-shadow: 0 8px 32px #e6007a22;
+                border-color: #e6007a55;
             }
         }
         /* גלריית המלצות בגריד 3x2 בדסקטופ - תופסות את כל הרוחב */
