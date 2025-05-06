@@ -6,6 +6,14 @@
     <title>RG10 - דף נחיתה</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3BHVLMFK2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-C3BHVLMFK2');
+    </script>
     <style>
         body {
             font-family: 'Heebo', Arial, sans-serif;
@@ -652,57 +660,81 @@
             }
             .included-box {
                 max-width: 100%;
-                margin: 40px 0 40px 0;
-                padding: 38px 54px 38px 54px;
-                border-radius: 32px;
-                background: linear-gradient(100deg,#fff0f6 0%,#e0ffe8 100%, #e0f7fa 100%);
-                box-shadow: 0 12px 48px #e6007a22, 0 2px 12px #00bcd422;
-                border: 4px solid #e6007a44;
-                font-size: 1.25em;
+                margin: 48px 0 48px 0;
+                padding: 48px 64px 48px 64px;
+                border-radius: 38px;
+                background: linear-gradient(100deg,#fff0f6 0%,#e0ffe8 60%, #e0f7fa 100%);
+                box-shadow: 0 16px 64px #e6007a33, 0 4px 18px #00bcd422;
+                border: 5px solid #e6007a55;
+                font-size: 1.32em;
                 display: flex;
-                flex-direction: row;
-                align-items: flex-start;
-                gap: 48px;
-                min-height: 220px;
+                flex-direction: column;
+                align-items: center;
+                gap: 36px;
+                min-height: 260px;
             }
             .included-box b {
-                font-size: 1.45em;
+                font-size: 2.1em;
                 color: #e6007a;
-                margin-left: 36px;
+                margin: 0 auto 18px auto;
                 display: flex;
                 align-items: center;
                 font-weight: bold;
-                letter-spacing: 0.5px;
-                text-shadow: 0 2px 8px #fff, 0 1px 0 #e6007a22;
+                letter-spacing: 1px;
+                text-shadow: 0 4px 24px #fff, 0 2px 8px #e6007a44, 0 1px 0 #e6007a22;
+                position: relative;
+                z-index: 2;
+                justify-content: center;
             }
             .included-box b::before {
                 content: '🎁';
                 font-size: 2.2em;
                 margin-left: 18px;
-                filter: drop-shadow(0 2px 6px #e6007a33);
+                filter: drop-shadow(0 4px 12px #e6007a44);
+            }
+            .included-box b::after {
+                content: '';
+                display: block;
+                position: absolute;
+                right: 0;
+                left: 0;
+                margin: 0 auto;
+                bottom: -18px;
+                width: 90%;
+                height: 7px;
+                background: linear-gradient(90deg,#e6007a 0%,#ff7e5f 100%);
+                border-radius: 8px;
+                opacity: 0.45;
+                z-index: 1;
             }
             .included-box ul {
-                margin: 0;
-                padding-right: 0;
-                line-height: 2.3;
-                font-size: 1.18em;
+                margin: 0 auto;
+                padding: 0;
+                line-height: 2.5;
+                font-size: 1.22em;
                 list-style: none;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0 36px;
+                width: 100%;
+                max-width: 700px;
+                justify-items: start;
             }
             .included-box ul li {
-                margin-bottom: 10px;
+                margin-bottom: 14px;
                 display: flex;
                 align-items: center;
-                font-size: 1.08em;
+                font-size: 1.12em;
                 color: #2d2d2d;
-                font-weight: 500;
-                letter-spacing: 0.2px;
+                font-weight: 600;
+                letter-spacing: 0.3px;
             }
             .included-box ul li::before {
-                content: '✔️';
-                font-size: 1.1em;
-                margin-left: 10px;
+                content: '✅';
+                font-size: 1.25em;
+                margin-left: 14px;
                 color: #43b324;
-                filter: drop-shadow(0 1px 2px #43b32422);
+                filter: drop-shadow(0 2px 4px #43b32433);
             }
             ul.features {
                 display: grid;
@@ -821,6 +853,17 @@
                 background: #fff0f6;
             }
         }
+        #popup-form input,
+        #popup-form textarea,
+        #popup-form select {
+            width: 80% !important;
+            margin-bottom: 5px !important;
+            padding: 5px !important;
+            border-radius: 8px;
+            border: 1.2px solid #e6007a33;
+            font-size: 0.92em !important;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
@@ -837,7 +880,7 @@
             </div>
         </div>
         <div style="text-align:center; margin-bottom: 12px;">
-            <button class="cta-btn" id="open-payment-menu-2" onclick="document.getElementById('payment-menu').style.display='flex'">קנו עכשיו במחיר המשתלם ביותר בעולם. רק 299 שח לסט מלא!</button>
+            <button class="cta-btn" id="open-payment-menu-2" onclick="gtag('event', 'click', {event_category: 'button', event_label: 'Order Now'}); document.getElementById('payment-menu').style.display='flex'">קנו עכשיו במחיר המשתלם ביותר בעולם. רק 299 שח לסט מלא!</button>
         </div>
         <div class="video" style="display: flex; justify-content: center; margin-bottom: 18px;">
             <video controls playsinline webkit-playsinline width="100%" style="border-radius:12px;max-width:100%;height:400px;">
@@ -981,6 +1024,9 @@
         </div>
         <div style="text-align:center; color:#e6007a; font-weight:bold; font-size:1.1em; margin:18px 0 0 0;">המשלוח סופר מהיר עד 3 ימי עסקים לכל הארץ!</div>
         <div class="footer">כל הזכויות שמורות © RG10</div>
+        <div style="text-align:center; color:#888; font-size:1em; margin-top:6px; direction:ltr;">
+            <a href="mailto:rg10vwatch@gmail.com" style="color:#e6007a; text-decoration:underline;">rg10vwatch@gmail.com</a>
+        </div>
     </div>
     <!-- לחצן נגישות צף -->
     <button id="accessibility-btn" aria-label="נגישות" style="position:fixed; left:24px; bottom:24px; z-index:9999; background:#e6007a; color:#fff; border:none; border-radius:50%; width:56px; height:56px; box-shadow:0 4px 16px #e6007a44; font-size:2em; cursor:pointer; display:flex; align-items:center; justify-content:center;">
@@ -993,7 +1039,7 @@
     </script>
     <!-- פופאפ טופס כללי -->
     <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#0008; z-index:10000; align-items:center; justify-content:center;">
-        <div id="popup-form" style="background:#fff; border-radius:16px; max-width:340px; width:90vw; padding:28px 18px 18px 18px; box-shadow:0 4px 32px #0002; position:relative;">
+        <div id="popup-form" style="background:#fff; border-radius:16px; max-width:270px; width:90vw; padding:18px 10px 12px 10px; box-shadow:0 4px 32px #0002; position:relative;">
             <button id="popup-close" aria-label="סגור" style="position:absolute; left:12px; top:12px; background:none; border:none; font-size:1.5em; color:#e6007a; cursor:pointer;">×</button>
             <div id="popup-title" style="font-size:1.2em; font-weight:bold; color:#e6007a; margin-bottom:12px;"></div>
             <form id="popup-inner-form" action="https://formspree.io/f/xnnddjya" method="POST">
