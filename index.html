@@ -1077,15 +1077,6 @@
             <a href="mailto:rg10vwatch@gmail.com" style="color:#e6007a; text-decoration:underline;">rg10vwatch@gmail.com</a>
         </div>
     </div>
-    <!-- לחצן נגישות צף -->
-    <button id="accessibility-btn" aria-label="נגישות" style="position:fixed; left:24px; bottom:24px; z-index:9999; background:#e6007a; color:#fff; border:none; border-radius:50%; width:56px; height:56px; box-shadow:0 4px 16px #e6007a44; font-size:2em; cursor:pointer; display:flex; align-items:center; justify-content:center;">
-        <span style="font-size:1.5em;">&#9855;</span>
-    </button>
-    <script>
-        document.getElementById('accessibility-btn').onclick = function() {
-            alert('תפריט נגישות יתווסף בקרוב');
-        };
-    </script>
     <!-- פופאפ טופס כללי -->
     <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#0008; z-index:10000; align-items:center; justify-content:center;">
         <div id="popup-form" style="background:#fff; border-radius:16px; max-width:270px; width:90vw; padding:18px 10px 12px 10px; box-shadow:0 4px 32px #0002; position:relative;">
@@ -1448,63 +1439,138 @@
         }
     });
     </script>
-    <!-- תפריט נגישות אמיתי -->
-    <div id="accessibility-menu" style="display:none; position:fixed; left:24px; bottom:90px; z-index:10000; background:#fff; border-radius:16px; box-shadow:0 4px 24px #e6007a33; padding:18px 18px 12px 18px; min-width:180px;">
+    <!-- לחצן נגישות צף -->
+    <button id="accessibility-btn" aria-label="תפריט נגישות" style="position:fixed; left:24px; bottom:24px; z-index:9999; background:#e6007a; color:#fff; border:none; border-radius:50%; width:56px; height:56px; box-shadow:0 4px 16px #e6007a44; font-size:2em; cursor:pointer; display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:1.5em;">&#9855;</span>
+    </button>
+    <!-- תפריט נגישות מתקדם -->
+    <nav id="accessibility-menu" aria-label="תפריט נגישות" style="display:none; position:fixed; left:24px; bottom:90px; z-index:10000; background:#fff; border-radius:16px; box-shadow:0 4px 24px #e6007a33; padding:18px 18px 12px 18px; min-width:220px; direction:rtl;">
         <div style="font-weight:bold; color:#e6007a; margin-bottom:10px;">תפריט נגישות</div>
-        <button onclick="changeFontSize(1)" style="width:100%;margin-bottom:8px;padding:8px 0;border:none;border-radius:8px;background:#e6007a;color:#fff;font-weight:bold;cursor:pointer;">הגדל טקסט</button>
-        <button onclick="changeFontSize(-1)" style="width:100%;margin-bottom:8px;padding:8px 0;border:none;border-radius:8px;background:#e6007a;color:#fff;font-weight:bold;cursor:pointer;">הקטן טקסט</button>
-        <button onclick="toggleContrast()" style="width:100%;margin-bottom:8px;padding:8px 0;border:none;border-radius:8px;background:#e6007a;color:#fff;font-weight:bold;cursor:pointer;">ניגודיות גבוהה</button>
-        <button onclick="resetAccessibility()" style="width:100%;padding:8px 0;border:none;border-radius:8px;background:#888;color:#fff;font-weight:bold;cursor:pointer;">איפוס</button>
+        <button class="acc-btn" data-action="font-up" style="width:100%;margin-bottom:8px;">הגדל טקסט</button>
+        <button class="acc-btn" data-action="font-down" style="width:100%;margin-bottom:8px;">הקטן טקסט</button>
+        <button class="acc-btn" data-action="font-reset" style="width:100%;margin-bottom:8px;">איפוס גודל טקסט</button>
+        <button class="acc-btn" data-action="contrast-dark" style="width:100%;margin-bottom:8px;">ניגודיות גבוהה (כהה)</button>
+        <button class="acc-btn" data-action="contrast-light" style="width:100%;margin-bottom:8px;">ניגודיות גבוהה (בהירה)</button>
+        <button class="acc-btn" data-action="contrast-reset" style="width:100%;margin-bottom:8px;">איפוס ניגודיות</button>
+        <button class="acc-btn" data-action="readable-font" style="width:100%;margin-bottom:8px;">פונט קריא</button>
+        <button class="acc-btn" data-action="highlight-links" style="width:100%;margin-bottom:8px;">הדגש קישורים</button>
+        <button class="acc-btn" data-action="stop-animations" style="width:100%;margin-bottom:8px;">הפסק אנימציות</button>
+        <button class="acc-btn" data-action="reset-all" style="width:100%;margin-bottom:8px;background:#888;">איפוס הכל</button>
+        <button class="acc-btn" data-action="statement" style="width:100%;background:#e0e0e0;color:#222;">הצהרת נגישות</button>
+    </nav>
+    <div id="accessibility-statement" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:#0008; z-index:10001; align-items:center; justify-content:center;">
+      <div style="background:#fff; border-radius:16px; max-width:340px; width:90vw; padding:28px 18px 18px 18px; box-shadow:0 4px 32px #0002; position:relative; text-align:right;">
+        <button onclick="document.getElementById('accessibility-statement').style.display='none'" aria-label="סגור" style="position:absolute; left:12px; top:12px; background:none; border:none; font-size:1.5em; color:#e6007a; cursor:pointer;">×</button>
+        <div style="font-size:1.2em; font-weight:bold; color:#e6007a; margin-bottom:12px;">הצהרת נגישות</div>
+        <div style="font-size:1em; color:#222;">אתר זה נבנה במטרה להנגיש את התוכן והשירותים לכלל האוכלוסייה, כולל אנשים עם מוגבלות. בוצעו התאמות נגישות בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013. במידה ונתקלתם בבעיה, נשמח שתעדכנו אותנו בכתובת: <a href="mailto:rg10vwatch@gmail.com" style="color:#e6007a;">rg10vwatch@gmail.com</a></div>
+      </div>
     </div>
+    <style>
+      .acc-btn:focus { outline: 2px solid #e6007a; background: #ffe8f3; }
+      .acc-btn { font-size:1em; border:none; border-radius:8px; background:#e6007a; color:#fff; font-weight:bold; padding:8px 0; margin-bottom:8px; cursor:pointer; transition:background 0.2s; }
+      .acc-btn:hover { background:#ff7e5f; }
+      .acc-highlight-link, a.acc-highlight-link { outline: 3px solid #ff7e5f !important; background: #fff0f6 !important; color: #e6007a !important; text-decoration: underline !important; }
+      .acc-readable-font, .acc-readable-font * { font-family: Arial, Helvetica, sans-serif !important; }
+      .acc-contrast-dark { background: #000 !important; color: #fff !important; }
+      .acc-contrast-dark .container, .acc-contrast-dark .testimonials-section, .acc-contrast-dark .faq-section, .acc-contrast-dark .payment-section { background: #222 !important; color: #fff !important; }
+      .acc-contrast-light { background: #fff !important; color: #000 !important; }
+      .acc-contrast-light .container, .acc-contrast-light .testimonials-section, .acc-contrast-light .faq-section, .acc-contrast-light .payment-section { background: #fff !important; color: #000 !important; }
+      .acc-stop-animations *, .acc-stop-animations *:before, .acc-stop-animations *:after { animation: none !important; transition: none !important; }
+    </style>
     <script>
-    // פתיחה/סגירה של תפריט הנגישות
-    const accBtn = document.getElementById('accessibility-btn');
-    const accMenu = document.getElementById('accessibility-menu');
-    accBtn.onclick = function() {
+    (function(){
+      const accBtn = document.getElementById('accessibility-btn');
+      const accMenu = document.getElementById('accessibility-menu');
+      const statement = document.getElementById('accessibility-statement');
+      let fontSizeLevel = 0;
+      let readableFont = false;
+      let highlightLinks = false;
+      let stopAnimations = false;
+      let contrast = '';
+      // פתיחה/סגירה של תפריט
+      accBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
         accMenu.style.display = accMenu.style.display === 'none' ? 'block' : 'none';
-    };
-    // סגירה בלחיצה מחוץ
-    document.addEventListener('click', function(e) {
+        if(accMenu.style.display === 'block') accMenu.querySelector('button').focus();
+      });
+      document.addEventListener('click', function(e) {
         if(accMenu.style.display === 'block' && !accMenu.contains(e.target) && e.target !== accBtn) {
+          accMenu.style.display = 'none';
+        }
+      });
+      // ניווט מקלדת
+      accMenu.addEventListener('keydown', function(e) {
+        const focusable = Array.from(accMenu.querySelectorAll('button'));
+        let idx = focusable.indexOf(document.activeElement);
+        if(e.key === 'ArrowDown') {
+          e.preventDefault();
+          focusable[(idx+1)%focusable.length].focus();
+        } else if(e.key === 'ArrowUp') {
+          e.preventDefault();
+          focusable[(idx-1+focusable.length)%focusable.length].focus();
+        } else if(e.key === 'Escape') {
+          accMenu.style.display = 'none';
+          accBtn.focus();
+        }
+      });
+      // פעולות תפריט
+      accMenu.querySelectorAll('button.acc-btn').forEach(btn => {
+        btn.addEventListener('click', function(e){
+          const action = btn.getAttribute('data-action');
+          if(action === 'font-up') {
+            if(fontSizeLevel<3) fontSizeLevel++;
+            document.body.style.fontSize = (1 + fontSizeLevel*0.1) + 'em';
+          } else if(action === 'font-down') {
+            if(fontSizeLevel>-3) fontSizeLevel--;
+            document.body.style.fontSize = (1 + fontSizeLevel*0.1) + 'em';
+          } else if(action === 'font-reset') {
+            fontSizeLevel = 0;
+            document.body.style.fontSize = '';
+          } else if(action === 'contrast-dark') {
+            document.body.classList.remove('acc-contrast-light');
+            document.body.classList.add('acc-contrast-dark');
+            contrast = 'dark';
+          } else if(action === 'contrast-light') {
+            document.body.classList.remove('acc-contrast-dark');
+            document.body.classList.add('acc-contrast-light');
+            contrast = 'light';
+          } else if(action === 'contrast-reset') {
+            document.body.classList.remove('acc-contrast-dark','acc-contrast-light');
+            contrast = '';
+          } else if(action === 'readable-font') {
+            readableFont = !readableFont;
+            if(readableFont) document.body.classList.add('acc-readable-font');
+            else document.body.classList.remove('acc-readable-font');
+          } else if(action === 'highlight-links') {
+            highlightLinks = !highlightLinks;
+            document.querySelectorAll('a').forEach(a=>{
+              if(highlightLinks) a.classList.add('acc-highlight-link');
+              else a.classList.remove('acc-highlight-link');
+            });
+          } else if(action === 'stop-animations') {
+            stopAnimations = !stopAnimations;
+            if(stopAnimations) document.body.classList.add('acc-stop-animations');
+            else document.body.classList.remove('acc-stop-animations');
+          } else if(action === 'reset-all') {
+            fontSizeLevel = 0;
+            document.body.style.fontSize = '';
+            document.body.classList.remove('acc-contrast-dark','acc-contrast-light','acc-readable-font','acc-stop-animations');
+            document.querySelectorAll('a').forEach(a=>a.classList.remove('acc-highlight-link'));
+            readableFont = false;
+            highlightLinks = false;
+            stopAnimations = false;
+            contrast = '';
+          } else if(action === 'statement') {
+            statement.style.display = 'flex';
             accMenu.style.display = 'none';
-        }
-    });
-    // פונקציות נגישות
-    let fontSizeLevel = 0;
-    function changeFontSize(dir) {
-        fontSizeLevel += dir;
-        document.body.style.fontSize = (1 + fontSizeLevel*0.1) + 'em';
-    }
-    let highContrast = false;
-    function toggleContrast() {
-        highContrast = !highContrast;
-        if(highContrast) {
-            document.body.style.background = '#000';
-            document.body.style.color = '#fff';
-            document.querySelectorAll('.container, .testimonials-section, .faq-section, .payment-section').forEach(function(el){
-                el.style.background = '#222';
-                el.style.color = '#fff';
-            });
-        } else {
-            document.body.style.background = '';
-            document.body.style.color = '';
-            document.querySelectorAll('.container, .testimonials-section, .faq-section, .payment-section').forEach(function(el){
-                el.style.background = '';
-                el.style.color = '';
-            });
-        }
-    }
-    function resetAccessibility() {
-        fontSizeLevel = 0;
-        document.body.style.fontSize = '';
-        highContrast = false;
-        document.body.style.background = '';
-        document.body.style.color = '';
-        document.querySelectorAll('.container, .testimonials-section, .faq-section, .payment-section').forEach(function(el){
-            el.style.background = '';
-            el.style.color = '';
+          }
         });
-    }
+      });
+      // סגירת הצהרת נגישות ב-Esc
+      statement.addEventListener('keydown', function(e){
+        if(e.key==='Escape') statement.style.display='none';
+      });
+    })();
     </script>
 </body>
 </html> 
