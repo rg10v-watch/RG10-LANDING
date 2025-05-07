@@ -1203,6 +1203,12 @@
                 <input name="name" required placeholder="שם מלא" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
                 <input name="phone" required placeholder="טלפון" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
             `;
+        } else if(type === 'business') {
+            title = 'הצטרפות למפיצים - עסקים';
+            fields = `
+                <input name="business_name" required placeholder="שם העסק" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+                <input name="phone" required placeholder="טלפון" style="width:100%;margin-bottom:10px;padding:10px;border-radius:8px;border:1.5px solid #e6007a33;font-size:1em;">
+            `;
         } else if(type === 'details') {
             title = 'השאר פרטים';
             fields = `
@@ -1390,6 +1396,10 @@
             <div style="font-size:1.3em; font-weight:bold; color:#e6007a; margin-bottom:12px;">מבצע השקה ראשוני בישראל!</div>
             <div style="font-size:1.1em; color:#2d2d2d; margin-bottom:10px;">מבצע מיוחד – רק <span style='color:#e6007a; font-weight:bold;'>299 ש"ח</span> ליחידה לסט מלא!</div>
             <div style="font-size:0.95em; color:#888;">* לזמן מוגבל בלבד</div>
+            <div style="color:#e6007a; font-weight:bold; margin-top:12px; font-size:1.05em;">
+                המבצע לחודש אחד בלבד!<br>
+                <span style="color:#ff0000; font-weight:bold;">המלאי מוגבל – כל הקודם זוכה!</span>
+            </div>
         </div>
     </div>
     <div id="confetti" class="confetti" style="display:none;"></div>
@@ -1671,6 +1681,18 @@
         if(e.key==='Escape') statement.style.display='none';
       });
     })();
+    </script>
+    <!-- בלון פופאפ לבעלי עסקים -->
+    <div id="business-bubble" style="display:none; position:fixed; left:24px; bottom:100px; z-index:10001; background:linear-gradient(90deg,#fff0f6 0%,#e0ffe8 100%); color:#e6007a; border-radius:18px; box-shadow:0 4px 16px #e6007a22; padding:18px 22px 18px 38px; font-size:1.08em; font-weight:bold; max-width:320px; min-width:180px;">
+        <button onclick="document.getElementById('business-bubble').style.display='none'" aria-label="סגור" style="position:absolute; left:8px; top:8px; background:none; border:none; font-size:1.3em; color:#e6007a; cursor:pointer;">×</button>
+        <span style="font-size:1.2em; margin-left:8px;">💼</span>
+        <span style="cursor:pointer;" onclick="openPopup('business')">בעלי עסקים? הצטרפו למהפכה ותהיו חלק מהמפיצים שלנו ברחבי הארץ!</span>
+    </div>
+    <script>
+      // הצגת הפופאפ אוטומטית אחרי 4 שניות
+      setTimeout(function(){
+        document.getElementById('business-bubble').style.display = 'block';
+      }, 4000);
     </script>
 </body>
 </html> 
