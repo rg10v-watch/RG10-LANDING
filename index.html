@@ -1686,9 +1686,21 @@
     <div id="business-bubble" style="display:none; position:fixed; left:24px; bottom:100px; z-index:10001; background:linear-gradient(90deg,#fff0f6 0%,#e0ffe8 100%); color:#e6007a; border-radius:18px; box-shadow:0 4px 16px #e6007a22; padding:18px 22px 18px 38px; font-size:1.08em; font-weight:bold; max-width:320px; min-width:180px;">
         <button onclick="document.getElementById('business-bubble').style.display='none'" aria-label="סגור" style="position:absolute; left:8px; top:8px; background:none; border:none; font-size:1.3em; color:#e6007a; cursor:pointer;">×</button>
         <span style="font-size:1.2em; margin-left:8px;">💼</span>
-        <span style="cursor:pointer;" onclick="openPopup('business')">בעלי עסקים? הצטרפו למהפכה ותהיו חלק מהמפיצים שלנו ברחבי הארץ!</span>
+        <span class="business-bubble-text-desktop" style="cursor:pointer; display:inline;" onclick="openPopup('business')">בעלי עסקים? הצטרפו למהפכה ותהיו חלק מהמפיצים שלנו ברחבי הארץ!</span>
+        <span class="business-bubble-text-mobile" style="display:none;">
+            בעלי עסקים? הצטרפו למהפכה ותהיו חלק מהמפיצים שלנו ברחבי הארץ!
+            <button onclick="openPopup('business')" style="display:block; margin:12px auto 0 auto; background:#e6007a; color:#fff; border:none; border-radius:8px; padding:8px 22px; font-size:1em; font-weight:bold; box-shadow:0 2px 8px #e6007a22; cursor:pointer;">לחץ כאן</button>
+        </span>
     </div>
     <script>
+      // החלפת תצוגה במובייל/דסקטופ
+      function updateBusinessBubbleText() {
+        var isMobile = window.innerWidth <= 899;
+        document.querySelector('#business-bubble .business-bubble-text-desktop').style.display = isMobile ? 'none' : 'inline';
+        document.querySelector('#business-bubble .business-bubble-text-mobile').style.display = isMobile ? 'inline' : 'none';
+      }
+      window.addEventListener('resize', updateBusinessBubbleText);
+      window.addEventListener('DOMContentLoaded', updateBusinessBubbleText);
       // הצגת הפופאפ אוטומטית אחרי 4 שניות
       setTimeout(function(){
         document.getElementById('business-bubble').style.display = 'block';
