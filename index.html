@@ -1274,6 +1274,49 @@
         <div style="text-align:center; color:#888; font-size:1em; margin-top:6px; direction:ltr;">
             <a href="mailto:rg10vwatch@gmail.com" style="color:#e6007a; text-decoration:underline;">rg10vwatch@gmail.com</a>
         </div>
+        <!-- כפתור תקנון -->
+        <div style="text-align:center; margin: 18px 0 24px 0;">
+            <button id="terms-btn" style="background:#e6007a; color:#fff; border:none; border-radius:8px; padding:8px 32px; font-size:1em; font-weight:bold; cursor:pointer;">תקנון האתר</button>
+        </div>
+        <!-- פופאפ תקנון -->
+        <div id="terms-popup" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#0008; z-index:20001; align-items:center; justify-content:center;">
+          <div style="background:#fff; border-radius:16px; max-width:420px; width:90vw; padding:28px 18px 18px 18px; box-shadow:0 4px 32px #0002; position:relative; text-align:right; max-height:90vh; overflow-y:auto;">
+            <button onclick="document.getElementById('terms-popup').style.display='none'" aria-label="סגור" style="position:absolute; left:12px; top:12px; background:none; border:none; font-size:1.5em; color:#e6007a; cursor:pointer;">×</button>
+            <div style="font-size:1.2em; font-weight:bold; color:#e6007a; margin-bottom:12px; text-align:center;">תקנון האתר ומדיניות החזרות</div>
+            <div style="font-size:1em; color:#222; text-align:right; direction:rtl;">
+              <b>1. כללי</b><br>
+              אתר זה מופעל על ידי RG10 (להלן: "החברה").<br>
+              השימוש באתר, ביצוע רכישה ו/או השארת פרטים מהווים הסכמה לתקנון זה.<br><br>
+              <b>2. ביצוע הזמנה ותשלום</b><br>
+              כל המחירים באתר כוללים מע"מ כחוק.<br>
+              התשלום באתר מתבצע באמצעות כרטיס אשראי, ביט, פייפאל או העברה בנקאית.<br><br>
+              <b>3. אספקה ומשלוחים</b><br>
+              המשלוח יתבצע לכתובת שהוזנה בעת ההזמנה.<br>
+              - זמן אספקה: עד 3 ימי עסקים, שמתחילים יום לאחר אישור ההזמנה, אלא אם צוין אחרת.<br><br>
+              <b>4. ביטול עסקה והחזרות</b><br>
+              ניתן לבטל עסקה בהתאם להוראות חוק הגנת הצרכן, התשמ"א-1981.<br>
+              ביטול עסקה יתבצע בהודעה בכתב (דוא"ל/וואטסאפ) תוך 14 ימים ממועד קבלת המוצר.<br>
+              במקרה של ביטול עסקה שלא עקב פגם או אי התאמה, ייגבו דמי ביטול בשיעור של עד 5% ממחיר העסקה או 100 ש"ח, הנמוך מביניהם.<br>
+              החזרת המוצר תתבצע באריזתו המקורית, כשהוא לא נעשה בו שימוש, בצירוף חשבונית מקורית.<br>
+              דמי המשלוח לא יוחזרו, והחזרת המוצר תתבצע על חשבון הלקוח.<br><br>
+              <b>5. מוצרים שאינם ניתנים להחזרה</b><br>
+              לא ניתן להחזיר מוצרים שנעשה בהם שימוש, מוצרים פסידים, מוצרים שיוצרו במיוחד עבור הלקוח, או מוצרים שאריזתם נפתחה ואינם ניתנים לאטימה מחדש.<br><br>
+              <b>6. אחריות</b><br>
+              האחריות על המוצרים בהתאם למדיניות היבואן/היצרן.<br>
+              במקרה של פגם במוצר, יש לפנות אלינו תוך 14 ימים ממועד קבלת המוצר.<br><br>
+              <b>7. שירות לקוחות</b><br>
+              לכל שאלה, בירור או בקשה ניתן לפנות אלינו בדוא"ל: RG10VWATCH@GMAIL.COM<br><br>
+              <b>8. שונות</b><br>
+              החברה שומרת לעצמה את הזכות לעדכן את התקנון מעת לעת.<br>
+              התקנון מנוסח בלשון זכר מטעמי נוחות בלבד, אך פונה לכל המגדרים.<br>
+            </div>
+          </div>
+        </div>
+        <script>
+        document.getElementById('terms-btn').onclick = function() {
+          document.getElementById('terms-popup').style.display = 'flex';
+        };
+        </script>
     </div>
     <!-- פופאפ טופס כללי -->
     <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#0008; z-index:10000; align-items:center; justify-content:center;">
