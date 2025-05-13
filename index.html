@@ -1039,6 +1039,42 @@
             <img src="logo.png.png" alt="RG10 לוגו">
         </div>
         <h1 class="main-title">RG10 - השעון החכם הראשון בעולם שהוא גם וייפ רב-פעמי!</h1>
+        <!-- מבצע מיוחד -->
+        <div style="background:linear-gradient(135deg,#fff0f6 0%,#e0ffe8 100%); padding:24px; border-radius:24px; margin:0 0 32px 0; text-align:center; box-shadow:0 8px 32px #e6007a22; border:2px solid #e6007a33;">
+            <div style="font-size:1.6em; font-weight:bold; margin-bottom:16px; color:#e6007a; text-shadow:0 2px 4px #e6007a22;">מבצע מיוחד ל-24 שעות בלבד!</div>
+            <div style="font-size:1.3em; margin-bottom:16px; color:#2d2d2d;">
+                <span style="text-decoration:line-through; opacity:0.6; margin-left:8px;">₪399</span>
+                <span style="font-size:1.6em; font-weight:bold; color:#e6007a; margin-right:8px;">₪299</span>
+                <span style="background:#e6007a; color:#fff; padding:6px 12px; border-radius:12px; font-weight:bold; box-shadow:0 2px 8px #e6007a44;">הנחה של 25%!</span>
+            </div>
+            <div style="display:flex; justify-content:center; gap:16px; margin-bottom:20px;">
+                <div style="background:#fff; color:#e6007a; padding:12px 16px; border-radius:16px; font-weight:bold; box-shadow:0 4px 16px #e6007a22; border:2px solid #e6007a33;">
+                    <div id="countdown-hours" style="font-size:1.4em;">24</div>
+                    <div style="font-size:0.9em;">שעות</div>
+                </div>
+                <div style="background:#fff; color:#e6007a; padding:12px 16px; border-radius:16px; font-weight:bold; box-shadow:0 4px 16px #e6007a22; border:2px solid #e6007a33;">
+                    <div id="countdown-minutes" style="font-size:1.4em;">00</div>
+                    <div style="font-size:0.9em;">דקות</div>
+                </div>
+                <div style="background:#fff; color:#e6007a; padding:12px 16px; border-radius:16px; font-weight:bold; box-shadow:0 4px 16px #e6007a22; border:2px solid #e6007a33;">
+                    <div id="countdown-seconds" style="font-size:1.4em;">00</div>
+                    <div style="font-size:0.9em;">שניות</div>
+                </div>
+            </div>
+            <div style="font-size:1.2em; font-weight:bold; margin-bottom:16px; color:#2d2d2d;">
+                נותרו <span id="stock-counter" style="color:#fff; background:#e6007a; padding:6px 16px; border-radius:12px; box-shadow:0 2px 8px #e6007a44;">15</span> יחידות במלאי!
+            </div>
+            <div style="display:flex; justify-content:center; gap:24px; margin-top:20px; flex-wrap:wrap;">
+                <div style="display:flex; align-items:center; gap:8px; background:#fff; padding:8px 16px; border-radius:12px; box-shadow:0 2px 8px #e6007a11;">
+                    <span style="font-size:1.4em;">🚚</span>
+                    <span style="color:#2d2d2d; font-weight:bold;">משלוח מהיר עד הבית</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:8px; background:#fff; padding:8px 16px; border-radius:12px; box-shadow:0 2px 8px #e6007a11;">
+                    <span style="font-size:1.4em;">🛡️</span>
+                    <span style="color:#2d2d2d; font-weight:bold;">אחריות מלאה של החברה</span>
+                </div>
+            </div>
+        </div>
         <!-- בלון משלוח מהיר -->
         <div style="display:flex;justify-content:center;margin-bottom:16px;">
             <div class="shipping-banner" style="background:linear-gradient(90deg,#e0ffe8 0%,#ffe8f3 100%);color:#e6007a;font-weight:bold;padding:12px 24px;border-radius:20px;box-shadow:0 4px 16px #e6007a22;display:flex;align-items:center;gap:12px;border:2px solid #e6007a33;font-size:1.3em;max-width:90%;">
@@ -1854,6 +1890,58 @@
       setTimeout(function(){
         document.getElementById('business-bubble').style.display = 'block';
       }, 4000);
+    </script>
+    <script>
+    // טיימר למבצע
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const endTime = localStorage.getItem('countdownEnd') || (now + 24 * 60 * 60 * 1000);
+        if (!localStorage.getItem('countdownEnd')) {
+            localStorage.setItem('countdownEnd', endTime);
+        }
+        
+        const distance = endTime - now;
+        
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+        
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            document.querySelector('.countdown-container').style.display = 'none';
+        }
+    }
+
+    // מונה מלאי
+    function updateStock() {
+        const currentStock = parseInt(localStorage.getItem('currentStock')) || 15;
+        if (currentStock > 0) {
+            document.getElementById('stock-counter').textContent = currentStock;
+        } else {
+            document.getElementById('stock-counter').textContent = 'אזל מהמלאי!';
+            document.getElementById('stock-counter').style.background = '#ff0000';
+        }
+    }
+
+    // עדכון הטיימר כל שנייה
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+    updateStock();
+
+    // עדכון המלאי בלחיצה על כפתור ההזמנה
+    document.querySelectorAll('.cta-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const currentStock = parseInt(localStorage.getItem('currentStock')) || 15;
+            if (currentStock > 0) {
+                localStorage.setItem('currentStock', currentStock - 1);
+                updateStock();
+            }
+        });
+    });
     </script>
 </body>
 </html> 
